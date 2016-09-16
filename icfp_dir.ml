@@ -36,6 +36,22 @@ let events =
     "Tutorial T1"; "Tutorial T2"; "Tutorial T3";"Tutorial T4";
     "Tutorial T5";"Tutorial T6";"Tutorial T7";"Tutorial T8"]
 
+let url_of_event = function
+  |"HOPE" -> "http://conf.researchr.org/track/icfp-2016/hope-2016-papers"
+  |"CUFP" -> "http://cufp.org/2016/"
+  |"Erlang" -> "http://conf.researchr.org/track/icfp-2016/erlang-2016-papers"
+  |"FARM" -> "http://functional-art.org/2016/"
+  |"FHCP" -> "http://conf.researchr.org/track/icfp-2016/FHPC-2016-papers"
+  |"Haskell" -> "https://www.haskell.org/haskell-symposium/2016/index.html"
+  |"HIW" -> "https://wiki.haskell.org/HaskellImplementorsWorkshop/2016"
+  |"ICFP" -> "http://conf.researchr.org/track/icfp-2016/icfp-2016-papers"
+  |"ML" -> "http://www.mlworkshop.org/ml2016"
+  |"OCaml" -> "http://ocaml.org/meetings/ocaml/2016/"
+  |"PLMW" -> "http://conf.researchr.org/track/PLMW-ICFP-2016/PLMW-ICFP-2016"
+  |"Scheme" -> "http://scheme2016.snow-fort.org"
+  |"TyDE" -> "http://conf.researchr.org/track/icfp-2016/tyde-2016-papers"
+  |_ -> "http://conf.researchr.org/home/icfp-2016"
+
 let is_tutorial l =
   String.with_range ~len:10 l = "Tutorial T"
 
@@ -71,26 +87,32 @@ let generate_page user repo issue =
   ignore (Sys.command (Printf.sprintf "mkdir -p %S" fname));
   let tmpl = Printf.sprintf
 "---
-title: %s
+title: %s 2016: %s
 author: whoami (Anonymous)
 abstract: %s
 ---
 
 This is the template for you to liveblog about the talk,
-which is at %s on %s %s %s.  You can replace all of this text
+which is at [%s](%s) on %s %s %s.  You can replace all of this text
 with your notes about the talk!
 
-There are a couple of ways to contribute the text to the ICFP 2016 liveblog.
+Some useful things to record in a liveblog are:
+* the general flow of the speaker's explanation
+* background summaries or links that would be useful to a reader
+  that has not read the paper.
+* any questions the audience asks which may not be recorded correctly
+* the URL to the paper, which could be found on the [ICFP preprint](https://github.com/gasche/icfp2016-papers) repo.
 
-* If you are familiar with the [Git](http://git-scm.com) CLI,
-  `git clone https://github.com/ocamllabs/icfp2016-blog.git` and
-  copy this template into `icfp2016-blog/%s/%s/<your-userid>.md`
-  where you can record your notes.  You can push these regularly or issue a pull
-  request at your own pace.
+There are a couple of ways to contribute your text to the ICFP 2016 liveblog.
+If you are familiar with the [Git](http://git-scm.com) CLI, then:
+* git clone <https://github.com/ocamllabs/icfp2016-blog.git>
+* copy this template into `icfp2016-blog/%s/%s/<your-userid>.md` where you can record your notes.
+* You can push this file regularly or issue a pull request at your own pace.
 
-* If you prefer a web UI, navigate [here](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s),
-  click on *Create a New Page* and name it `<your-github-user>.md`. Place the
-  header below at the top, and then add your notes:
+If you prefer a web UI:
+* navigate [to the GitHub for this talk](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s)
+* click on *Create a New Page* and name it `<your-github-user>.md`
+* place the header below at the top of the file, and then add your notes.
 
 ```
 ---
@@ -103,27 +125,29 @@ your notes
 ---
 ```
 
-Anyone who wishes to contribute to the ICFP 2016 is welcome to liveblog here.
+Do not forget to push your notes back to the <https://github.com/ocamllabs/icfp2016-blog> repository.
+Anyone who wishes to contribute is most welcome to liveblog here, and do not worry about your notes
+being in rough shape; this is expected for a liveblog!
+
 If you want direct push access to the repository, please contact
 Anil Madhavapeddy <avsm2@cam.ac.uk> or Gemma Gordon <gg417@cam.ac.uk> and
 we will add you.  If you do not have access, just send a
 [pull request](https://help.github.com/articles/about-pull-requests/) and we will merge it.
 
-" title title event day time ampm event tdir event tdir in
+" event title title event (url_of_event event) day time ampm event tdir event tdir in
   let fname = fname ^ "/template.md" in
   write_file fname tmpl;
   let fname = Printf.sprintf "%s/%s/%s.md" basedir event tdir in
   let tmpl = Printf.sprintf
 "---
-title: %s
+title: %s: %s
 author: your-uid-here (your-name-here)
 abstract: Notes on %s
 ---
 
-There are currently no liveblogs available for this talk.
-
-If you wish to contribute to it, please find instructions
-in the [contribution template](%s/template.md).
+There is currently no liveblog summary available for this talk.
+You can view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/).
+If you wish to contribute your notes, instructions are in the [contribution template](%s/template.md).
 
 TL;DR:
 * fork and git clone <https://github.com/ocamllabs/icfp2016-blog>
@@ -132,7 +156,7 @@ TL;DR:
 * when the talk is complete combine all the notes into `%s/%s.md`, which is this page (deleting these instructions in the process).
 
 commit.
-" title title tdir event tdir event tdir event tdir in
+" event title title event tdir tdir event tdir event tdir event tdir in
   write_file fname tmpl;
   end
 
@@ -144,6 +168,15 @@ author: Gemma Gordon, Anil Madhavapeddy
 abstract: All the liveblogs
 ---
 
+Welcome to the unofficial ICFP 2016 liveblog!  This is a resource intended to
+capture the live notes of activity across the hundreds of talks that will be
+given at ICFP 2016 in Nara, Japan.  Any attendee of the conference is welcome
+to contribute their notes here, and we will aggregate them after the event into
+an archive.
+
+The whole site is driven from a Git repository hosted at <https://github.com/ocamllabs/icfp2016-blog>,
+and an OCaml [MirageOS](https://mirage.io) unikernel is serving it over HTTP at <http://icfp2016.mirage.io>.
+For contribution instructions, please click through to the individual talks in the list below:
 
 %s
 
@@ -151,7 +184,7 @@ Some useful resources:
 * <https://github.com/gasche/icfp2016-papers>
 * <http://icfpconference.org>
 " (String.concat ~sep:"\n"
-    (List.map (fun e -> Printf.sprintf "* [%s](%s) " e e)
+    (List.map (fun e -> Printf.sprintf "* [%s](%s) ([homepage](%s))" e e (url_of_event e))
     (List.filter (fun e -> not (is_tutorial e)) events))) in
   write_file (basedir ^ "/Index") tmpl;
   (* event indexes *)
