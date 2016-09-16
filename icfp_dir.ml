@@ -206,7 +206,7 @@ running on [Docker Cloud](http://cloud.docker.com).  The blog software is the [C
 system built by [Enguerrand Decorne](https://github.com/Engil) during an internship at [OCaml Labs](http://ocaml.io)
 in Cambridge.
 " (String.concat ~sep:"\n"
-    (List.map (fun e -> Printf.sprintf "* **[%s](%s)** - *([homepage](%s))* *([issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%%3Aopen+is%%3Aissue+label%%3A%s))*" e e (url_of_event e) e)
+    (List.map (fun e -> Printf.sprintf "* **[%s](%s)** - *[homepage](%s)* *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%%3Aopen+is%%3Aissue+label%%3A%s)*" e e (url_of_event e) e)
     (List.filter (fun e -> not (is_tutorial e)) events))) in
   write_file (basedir ^ "/Index") tmpl;
   (* event indexes *)
