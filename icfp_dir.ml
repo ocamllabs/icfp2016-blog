@@ -70,9 +70,11 @@ let write_file fname b =
   print_endline ("Wrote " ^ fname)
 
 let title_dir title =
-  String.with_range ~first:0 ~len:20 title |>
+  String.with_range ~first:0 ~len:30 title |>
   String.Ascii.lowercase |>
-  String.map (function |'a'..'z' as x -> x|'A'..'Z' as x -> x|'0'..'9' as x -> x |_ -> '-')
+  String.fold_left (fun a b ->
+    let is_ok = function |'a'..'z'|'A'..'Z'|'0'..'9' -> true |_ -> false in
+    if is_ok b then a ^ (String.of_char b) else a) ""
  
 let generate_page user repo issue =
   all_issues := issue :: !all_issues;
