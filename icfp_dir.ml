@@ -72,7 +72,7 @@ let write_file fname b =
 let title_dir title =
   String.with_range ~first:0 ~len:20 title |>
   String.Ascii.lowercase |>
-  String.map (function |' '|':' -> '-' |x -> x)
+  String.map (function |'a'..'z' as x -> x|'A'..'Z' as x -> x|'0'..'9' as x -> x |_ -> '-')
  
 let generate_page user repo issue =
   all_issues := issue :: !all_issues;
