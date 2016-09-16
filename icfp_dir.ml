@@ -7,6 +7,11 @@ open Astring
 
 module T = Github_t
 
+let basedir = "./"
+let repo = "https://github.com/ocamllabs/icfp2016-blog/"
+let issues = repo ^ "issues/"
+let uri = "http://icfp2016.mirage.io/"
+
 let findl all issue labels =
    List.fold_left (fun a day ->
      match a with
@@ -61,7 +66,6 @@ let generate_page user repo issue =
   let event = event_of_labels issue issue_labels in
   if not (is_tutorial event) then begin
   let time,title = parse_title issue issue.T.issue_title in
-  let basedir = "./repo" in
   let fname = Printf.sprintf "%s/%s/%s" basedir event (title_dir title) in
   ignore (Sys.command (Printf.sprintf "mkdir -p %S" fname));
   let tmpl = Printf.sprintf
@@ -72,9 +76,27 @@ abstract: %s
 ---
 
 This is the template for you to liveblog about the talk,
-which is at %s on %s %s %s.  Just replace the content here
-with your edits, and then submit it online.
-" title title event day time ampm in
+which is at %s on %s %s %s.  You can replace all of this text
+with your notes about the talk!
+
+There are a couple of ways to contribute the text to the ICFP 2016 liveblog.
+
+* If you are familiar with the [Git](http://git-scm.com) CLI,
+  then `git clone https://github.com/ocamllabs/icfp2016-blog.git` and
+  make a copy of this template into `icfp2016-blog/%s/%s/<your-userid>.md`
+  where you can record your notes.  You can push these regularly or issue a pull
+  request at your own pace, and when the talk is complete copy the content into
+  `icfp2016-blog/%s/%s.md` (which may also contain other people's content).
+
+* If you prefer a web UI, then create a new page at ...
+
+Anyone who wishes to contribute to the ICFP 2016 is welcome to liveblog here.
+If you want direct push access to the repository, please contact
+Anil Madhavapeddy <avsm2@cam.ac.uk> or Gemma Gordon <gg417@cam.ac.uk> and
+we will add you.  If you do not have access, just send a
+[pull request](https://help.github.com/articles/about-pull-requests/) and we will merge it.
+
+" title title event day time ampm event (title_dir title) event (title_dir title) in
   let fname = fname ^ "/template.md" in
   write_file fname tmpl;
   let fname = Printf.sprintf "%s/%s/%s.md" basedir event (title_dir title) in
@@ -96,7 +118,6 @@ commit.
   end
 
 let generate_indexes () =
-  let basedir = "./repo" in
   let tmpl = Printf.sprintf 
 "---
 title: ICFP 2016 Events
@@ -157,7 +178,6 @@ let print_issue token repos =
 let cmd =
   let cookie = Jar_cli.cookie () in
   let repos = Jar_cli.repos ~doc_append:" to list issues and PRs" () in
-
   let doc = "generate ICFP program" in
   let man = [
     `S "BUGS";
