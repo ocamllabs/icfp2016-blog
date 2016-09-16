@@ -66,7 +66,8 @@ let generate_page user repo issue =
   let event = event_of_labels issue issue_labels in
   if not (is_tutorial event) then begin
   let time,title = parse_title issue issue.T.issue_title in
-  let fname = Printf.sprintf "%s/%s/%s" basedir event (title_dir title) in
+  let tdir = title_dir title in
+  let fname = Printf.sprintf "%s/%s/%s" basedir event tdir in
   ignore (Sys.command (Printf.sprintf "mkdir -p %S" fname));
   let tmpl = Printf.sprintf
 "---
@@ -82,13 +83,25 @@ with your notes about the talk!
 There are a couple of ways to contribute the text to the ICFP 2016 liveblog.
 
 * If you are familiar with the [Git](http://git-scm.com) CLI,
-  then `git clone https://github.com/ocamllabs/icfp2016-blog.git` and
-  make a copy of this template into `icfp2016-blog/%s/%s/<your-userid>.md`
+  `git clone https://github.com/ocamllabs/icfp2016-blog.git` and
+  copy this template into `icfp2016-blog/%s/%s/<your-userid>.md`
   where you can record your notes.  You can push these regularly or issue a pull
-  request at your own pace, and when the talk is complete copy the content into
-  `icfp2016-blog/%s/%s.md` (which may also contain other people's content).
+  request at your own pace.
 
-* If you prefer a web UI, then create a new page at ...
+* If you prefer a web UI, navigate [here](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s),
+  click on *Create a New Page* and name it `<your-github-user>.md`. Place the
+  header below at the top, and then add your notes:
+
+```
+---
+title:
+author: <your-id> (your-name)
+abstract:
+---
+
+your notes
+---
+```
 
 Anyone who wishes to contribute to the ICFP 2016 is welcome to liveblog here.
 If you want direct push access to the repository, please contact
@@ -96,24 +109,30 @@ Anil Madhavapeddy <avsm2@cam.ac.uk> or Gemma Gordon <gg417@cam.ac.uk> and
 we will add you.  If you do not have access, just send a
 [pull request](https://help.github.com/articles/about-pull-requests/) and we will merge it.
 
-" title title event day time ampm event (title_dir title) event (title_dir title) in
+" title title event day time ampm event tdir event tdir in
   let fname = fname ^ "/template.md" in
   write_file fname tmpl;
-  let fname = Printf.sprintf "%s/%s/%s.md" basedir event (title_dir title) in
+  let fname = Printf.sprintf "%s/%s/%s.md" basedir event tdir in
   let tmpl = Printf.sprintf
 "---
 title: %s
-author: whoami (TODO)
+author: your-uid-here (your-name-here)
 abstract: Notes on %s
 ---
 
-This is the liveblog notes.  In case there are multiple
-people liveblogging, you can temporarily edit your notes
-at %s url and then copy them into this one in one
+There are currently no liveblogs available for this talk.
+
+If you wish to contribute to it, please find instructions
+in the [contribution template](%s/template.md).
+
+TL;DR:
+* fork and git clone <https://github.com/ocamllabs/icfp2016-blog>
+* copy `%s/%s/template.md` to `%s/%s/your-uid.md` and add your notes there
+* contribute this file back via a [pull request](https://help.github.com/articles/creating-a-pull-request/)
+* when the talk is complete combine all the notes into `%s/%s.md`, which is this page (deleting these instructions in the process).
+
 commit.
-" title title
-  (Printf.sprintf "[%s](%s/template.md)" "this" (title_dir title))
-  in
+" title title tdir event tdir event tdir event tdir in
   write_file fname tmpl;
   end
 
