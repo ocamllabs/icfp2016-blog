@@ -149,18 +149,24 @@ abstract: Notes on %s
 ---
 
 There is currently no liveblog summary available for this talk.
-You can view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/),
-or the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/%d) for this talk.
-If you wish to contribute your notes, instructions are in the [contribution template](%s/template.md).
 
-TL;DR:
-* fork and git clone <https://github.com/ocamllabs/icfp2016-blog>
-* copy `%s/%s/template.md` to `%s/%s/your-uid.md` and add your notes there
-* contribute this file back via a [pull request](https://help.github.com/articles/creating-a-pull-request/)
-* when the talk is complete combine all the notes into `%s/%s.md`, which is this page (deleting these instructions in the process).
+* View in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/)
+* See the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/%d) for this talk
+* To contribute your own notes, instructions are in the [template](%s/template.md) for this talk.
 
-commit.
-" event title title event tdir issue.T.issue_number tdir event tdir event tdir event tdir in
+Some useful contributions before the talk include:
+* a link to an open access preprint PDF
+* background information you might feel will help readers understand the talk better
+
+During the talk, some useful things to record in a liveblog are:
+* the general flow of the speaker's explanation
+* summaries or links that would be useful to a reader that has not read the paper
+* any questions the audience asks which may not be recorded correctly
+
+If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
+to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+
+" event title title event tdir issue.T.issue_number tdir in
   write_file fname tmpl;
   end
 
@@ -188,7 +194,7 @@ Some useful resources:
 * <https://github.com/gasche/icfp2016-papers>
 * <http://icfpconference.org>
 " (String.concat ~sep:"\n"
-    (List.map (fun e -> Printf.sprintf "* [%s](%s): *[homepage](%s)*" e e (url_of_event e))
+    (List.map (fun e -> Printf.sprintf "* **[%s](%s)**  *[(homepage](%s))*" e e (url_of_event e))
     (List.filter (fun e -> not (is_tutorial e)) events))) in
   write_file (basedir ^ "/Index") tmpl;
   (* event indexes *)
