@@ -104,6 +104,9 @@ Some useful things to record in a liveblog are:
 * the URL to the paper, which could be found on the [ICFP preprint](https://github.com/gasche/icfp2016-papers) repo.
 
 There are a couple of ways to contribute your text to the ICFP 2016 liveblog.
+First check GitHub [issue #%d](https://github.com/ocamllabs/icfp2016-blog/issue/%d) and
+add a note that you are blogging to let other people know.
+
 If you are familiar with the [Git](http://git-scm.com) CLI, then:
 * git clone <https://github.com/ocamllabs/icfp2016-blog.git>
 * copy this template into `icfp2016-blog/%s/%s/<your-userid>.md` where you can record your notes.
@@ -134,7 +137,7 @@ Anil Madhavapeddy <avsm2@cam.ac.uk> or Gemma Gordon <gg417@cam.ac.uk> and
 we will add you.  If you do not have access, just send a
 [pull request](https://help.github.com/articles/about-pull-requests/) and we will merge it.
 
-" event title title event (url_of_event event) day time ampm event tdir event tdir in
+" event title title event (url_of_event event) day time ampm issue.T.issue_number issue.T.issue_number event tdir event tdir in
   let fname = fname ^ "/template.md" in
   write_file fname tmpl;
   let fname = Printf.sprintf "%s/%s/%s.md" basedir event tdir in
@@ -146,7 +149,8 @@ abstract: Notes on %s
 ---
 
 There is currently no liveblog summary available for this talk.
-You can view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/).
+You can view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/),
+or the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/%d) for this talk.
 If you wish to contribute your notes, instructions are in the [contribution template](%s/template.md).
 
 TL;DR:
@@ -156,7 +160,7 @@ TL;DR:
 * when the talk is complete combine all the notes into `%s/%s.md`, which is this page (deleting these instructions in the process).
 
 commit.
-" event title title event tdir tdir event tdir event tdir event tdir in
+" event title title event tdir issue.T.issue_number tdir event tdir event tdir event tdir in
   write_file fname tmpl;
   end
 
@@ -174,7 +178,7 @@ given at ICFP 2016 in Nara, Japan.  Any attendee of the conference is welcome
 to contribute their notes here, and we will aggregate them after the event into
 an archive.
 
-The whole site is driven from a Git repository hosted at <https://github.com/ocamllabs/icfp2016-blog>,
+The whole site is driven from a Git repository at <https://github.com/ocamllabs/icfp2016-blog>,
 and an OCaml [MirageOS](https://mirage.io) unikernel is serving it over HTTP at <http://icfp2016.mirage.io>.
 For contribution instructions, please click through to the individual talks in the list below:
 
@@ -184,7 +188,7 @@ Some useful resources:
 * <https://github.com/gasche/icfp2016-papers>
 * <http://icfpconference.org>
 " (String.concat ~sep:"\n"
-    (List.map (fun e -> Printf.sprintf "* [%s](%s) ([homepage](%s))" e e (url_of_event e))
+    (List.map (fun e -> Printf.sprintf "* [%s](%s): *[homepage](%s)*" e e (url_of_event e))
     (List.filter (fun e -> not (is_tutorial e)) events))) in
   write_file (basedir ^ "/Index") tmpl;
   (* event indexes *)
