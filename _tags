@@ -1,0 +1,2 @@
+true: annot, bin_annot, debug
+true: package(github.unix), package(cmdliner), package(fmt.tty), package(astring)
