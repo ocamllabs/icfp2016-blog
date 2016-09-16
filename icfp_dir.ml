@@ -148,9 +148,9 @@ we will add you.  If you do not have access, just send a
   let fname = Printf.sprintf "%s/%s/%s.md" basedir event tdir in
   let tmpl = Printf.sprintf
 "---
-title: %s: %s
+title: %s
 author: your-uid-here (your-name-here)
-abstract: Notes on %s
+abstract: in %s 2016 at %s %s %s
 ---
 
 There is currently no liveblog summary available for this talk. You can:
@@ -171,7 +171,7 @@ During the talk, some useful things to record in a liveblog are:
 If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
 to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
 
-" event title title event tdir issue.T.issue_number tdir in
+" title event day time ampm event tdir issue.T.issue_number tdir in
   write_file fname tmpl;
   end
 
