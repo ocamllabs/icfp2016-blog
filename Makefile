@@ -5,3 +5,6 @@ all: icfp_dir.ml
 
 clean:
 	rm -rf _build
+
+depends:
+	opam install -y github tls cmdliner astring
