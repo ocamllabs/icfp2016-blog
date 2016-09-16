@@ -148,14 +148,14 @@ author: your-uid-here (your-name-here)
 abstract: Notes on %s
 ---
 
-There is currently no liveblog summary available for this talk.
+There is currently no liveblog summary available for this talk. You can:
 
-* View in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/)
-* See the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/%d) for this talk
-* To contribute your own notes, instructions are in the [template](%s/template.md) for this talk.
+* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/%s/%s/)
+* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/%d) for this talk
+* contribute your own notes by copying the [template](%s/template.md) for this talk.
 
 Some useful contributions before the talk include:
-* a link to an open access preprint PDF
+* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
 * background information you might feel will help readers understand the talk better
 
 During the talk, some useful things to record in a liveblog are:
