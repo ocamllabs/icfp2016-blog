@@ -173,20 +173,21 @@ to assist you with the fine art of issuing a [pull request](https://help.github.
 let generate_indexes () =
   let tmpl = Printf.sprintf 
 "---
-title: ICFP 2016 Events
-author: Gemma Gordon, Anil Madhavapeddy
+title: ICFP 2016 Liveblog Index
+author: Gemma Gordon, Anil Madhavapeddy, Gabriel Scherer
 abstract: All the liveblogs
 ---
 
-Welcome to the unofficial ICFP 2016 liveblog!  This is a resource intended to
-capture the live notes of activity across the hundreds of talks that will be
-given at ICFP 2016 in Nara, Japan.  Any attendee of the conference is welcome
-to contribute their notes here, and we will aggregate them after the event into
-an archive.
+Welcome to the unofficial [ICFP 2016](http://conf.researchr.org/home/icfp-2016)
+liveblog!  This is a resource intended to capture the live notes of activity
+across the hundreds of talks that will be given at ICFP 2016 in Nara, Japan.
+Any attendee of the conference is welcome to contribute their notes here, and
+we will aggregate them after the event into an archive.
 
-The whole site is driven from a Git repository at <https://github.com/ocamllabs/icfp2016-blog>,
-and an OCaml [MirageOS](https://mirage.io) unikernel is serving it over HTTP at <http://icfp2016.mirage.io>.
-For contribution instructions, please click through to the individual talks in the list below:
+The site data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>,
+and an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) is
+serving it over HTTP at <http://icfp2016.mirage.io>.
+To contribute, please click through to the individual talks in the list below:
 
 %s
 
