@@ -136,13 +136,15 @@ your notes
 Do not forget to push your notes back to the <https://github.com/ocamllabs/icfp2016-blog> repository.
 Anyone who wishes to contribute is most welcome to liveblog here, and do not worry about your notes
 being in rough shape; this is expected for a liveblog!
+Send photos or other social media taken during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=%s:%s).
 
 If you want direct push access to the repository, please contact
-Anil Madhavapeddy <avsm2@cam.ac.uk> or Gemma Gordon <gg417@cam.ac.uk> and
+Anil Madhavapeddy (avsm2@cam.ac.uk), Gemma Gordon (gg417@cam.ac.uk)
+or KC Sivaramakrishnan (sk826@cam.ac.uk) and
 we will add you.  If you do not have access, just send a
 [pull request](https://help.github.com/articles/about-pull-requests/) and we will merge it.
 
-" event title title event (url_of_event event) day time ampm issue.T.issue_number issue.T.issue_number event tdir event tdir in
+" event title title event (url_of_event event) day time ampm issue.T.issue_number issue.T.issue_number event tdir event tdir event tdir in
   let fname = fname ^ "/template.md" in
   write_file fname tmpl;
   let fname = Printf.sprintf "%s/%s/%s.md" basedir event tdir in
@@ -168,11 +170,12 @@ During the talk, some useful things to record in a liveblog are:
 * the general flow of the speaker's explanation
 * summaries or links that would be useful to a reader that has not read the paper
 * any questions the audience asks which may not be recorded correctly
+* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=%s:%s)
 
 If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
 to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
 
-" title event day time ampm event tdir event tdir issue.T.issue_number tdir in
+" title event day time ampm event tdir event tdir issue.T.issue_number tdir event tdir in
   write_file fname tmpl;
   end
 
