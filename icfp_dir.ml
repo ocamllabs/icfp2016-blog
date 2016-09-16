@@ -189,16 +189,19 @@ across the hundreds of talks that will be given at ICFP 2016 in Nara, Japan.
 Any attendee of the conference is welcome to contribute their notes here, and
 we will aggregate them after the event into an archive.
 
-The site data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>,
-and an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) is
-serving it over HTTP at <http://icfp2016.mirage.io>.
 To contribute, please click through to the individual talks in the list below:
 
 %s
 
 Some useful resources:
-* <https://github.com/gasche/icfp2016-papers>
-* <http://icfpconference.org>
+* ICFP preprints: <https://github.com/gasche/icfp2016-papers>
+* Conference website: <http://icfpconference.org>
+
+The site data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>.
+It is served via an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) 
+running on [Docker Cloud](http://cloud.docker.com).  The blog software is the [Canopy](https://github.com/engil/canopy)
+system built by (Enguerrand Decorne)[https://github.com/Engil] during an internship at [OCaml Labs](http://ocaml.io)
+in Cambridge.
 " (String.concat ~sep:"\n"
     (List.map (fun e -> Printf.sprintf "* **[%s](%s)**  *[(homepage](%s))*" e e (url_of_event e))
     (List.filter (fun e -> not (is_tutorial e)) events))) in
