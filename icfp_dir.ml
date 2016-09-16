@@ -74,7 +74,10 @@ let title_dir title =
   String.Ascii.lowercase |>
   String.fold_left (fun a b ->
     let is_ok = function |'a'..'z'|'A'..'Z'|'0'..'9' -> true |_ -> false in
-    if is_ok b then a ^ (String.of_char b) else a) ""
+    match b with
+    |' ' -> a ^ "-"
+    | b when is_ok b -> a ^ (String.of_char b)
+    | b -> a) ""
  
 let generate_page user repo issue =
   all_issues := issue :: !all_issues;
