@@ -1,0 +1,32 @@
+---
+title: Erlang Index
+author: Gemma Gordon, Anil Madhavapeddy, Gabriel Scherer
+abstract: Click this for a summary of the talks and their times
+---
+
+* 0915-0925: [Opening and welcome](opening-and-welcome.md)
+* 0925-1015: [Solutions to distributed system problems, AKKA, actors](solutions-to-distributed-syste.md)
+* 1035-1100: [A scalable reliable instant messenger using the SD Erlang libraries](a-scalable-reliable-instant-me.md)
+* 1100-1125: [CRDTs for the configuration of distributed Erlang systems](crdts-for-the-configuration-of.md)
+* 1145-1210: [Observing the consistency of distributed systems](observing-the-consistency-of-d.md)
+* 1210- 1235: [Making everybody comfortable with Erlang: a SCADA system for thermal control](making-everybody-comfortable-w.md)
+* 1400-1425: [Profiling actor utilization and communication in Akka](profiling-actor-utilization-an.md)
+* 1425-1450: [The nifty way to call hell from heaven](the-nifty-way-to-call-hell-fro.md)
+* 1520-1545: [Automatic generation of UML sequence diagrams from test counterexamples](automatic-generation-of-uml-se.md)
+* 1545-1610: [Towards semi-automatic data-type translation for parallelism in Erlang](towards-semiautomatic-dataty.md)
+* 1640-1705: [Towards reliable and scalable robot communication](towards-reliable-and-scalable-.md)
+* 1705-1730: [Erlang latest news](erlang-latest-news.md)
+* 1730-1800: [Closing](closing.md)
+* 0915-0925: [Opening and welcome](opening-and-welcome.md)
+* 0925-1015: [Solutions to distributed system problems, AKKA, actors](solutions-to-distributed-syste.md)
+* 1035-1100: [A scalable reliable instant messenger using the SD Erlang libraries](a-scalable-reliable-instant-me.md)
+* 1100-1125: [CRDTs for the configuration of distributed Erlang systems](crdts-for-the-configuration-of.md)
+* 1145-1210: [Observing the consistency of distributed systems](observing-the-consistency-of-d.md)
+* 1210- 1235: [Making everybody comfortable with Erlang: a SCADA system for thermal control](making-everybody-comfortable-w.md)
+* 1400-1425: [Profiling actor utilization and communication in Akka](profiling-actor-utilization-an.md)
+* 1425-1450: [The nifty way to call hell from heaven](the-nifty-way-to-call-hell-fro.md)
+* 1520-1545: [Automatic generation of UML sequence diagrams from test counterexamples](automatic-generation-of-uml-se.md)
+* 1545-1610: [Towards semi-automatic data-type translation for parallelism in Erlang](towards-semiautomatic-dataty.md)
+* 1640-1705: [Towards reliable and scalable robot communication](towards-reliable-and-scalable-.md)
+* 1705-1730: [Erlang latest news](erlang-latest-news.md)
+* 1730-1800: [Closing](closing.md)
