@@ -1,0 +1,30 @@
+---
+title: HIW Index
+author: Gemma Gordon, Anil Madhavapeddy, Gabriel Scherer
+abstract: Click this for a summary of the talks and their times
+---
+
+* 0915-0945: [The state of the GHC](the-state-of-the-ghc.md)
+* 0945-1015: [Contributing to GHC](contributing-to-ghc.md)
+* 1035-1100: [Backpack to work: towards Backpack in practice](backpack-to-work-towards-back.md)
+* 1100-1125: [More powerful GHC plugins](more-powerful-ghc-plugins.md)
+* 1145-1210: [A dependent Haskell triptych](a-dependent-haskell-triptych.md)
+* 1210-1235: [Automatically escaping monads](automatically-escaping-monads.md)
+* 1400-1425: [Pita: Tools for making GHC fast again](pita-tools-for-making-ghc-fas.md)
+* 1425-1450: [GHC determinism](ghc-determinism.md)
+* 1520-1545: [Remote GHCi](remote-ghci.md)
+* 1545-1610: [GHCVM: A JVM backend for GHC](ghcvm-a-jvm-backend-for-ghc.md)
+* 1640-1705: [Trees that grow](trees-that-grow.md)
+* 1705-1800: [Lightning Talks](lightning-talks.md)
+* 0915-0945: [The state of the GHC](the-state-of-the-ghc.md)
+* 0945-1015: [Contributing to GHC](contributing-to-ghc.md)
+* 1035-1100: [Backpack to work: towards Backpack in practice](backpack-to-work-towards-back.md)
+* 1100-1125: [More powerful GHC plugins](more-powerful-ghc-plugins.md)
+* 1145-1210: [A dependent Haskell triptych](a-dependent-haskell-triptych.md)
+* 1210-1235: [Automatically escaping monads](automatically-escaping-monads.md)
+* 1400-1425: [Pita: Tools for making GHC fast again](pita-tools-for-making-ghc-fas.md)
+* 1425-1450: [GHC determinism](ghc-determinism.md)
+* 1520-1545: [Remote GHCi](remote-ghci.md)
+* 1545-1610: [GHCVM: A JVM backend for GHC](ghcvm-a-jvm-backend-for-ghc.md)
+* 1640-1705: [Trees that grow](trees-that-grow.md)
+* 1705-1800: [Lightning Talks](lightning-talks.md)
