@@ -152,7 +152,7 @@ we will add you.  If you do not have access, just send a
 "---
 title: %s
 author: your-uid-here (your-name-here)
-abstract: in %s 2016 at %s %s %s
+abstract: at %s %s %s (%s 2016)
 ---
 
 There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/%s/%s.md).
@@ -175,7 +175,7 @@ During the talk, some useful things to record in a liveblog are:
 If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
 to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
 
-" title event day time ampm event tdir event tdir issue.T.issue_number tdir event tdir in
+" title day time ampm event event tdir event tdir issue.T.issue_number tdir event tdir in
   write_file fname tmpl;
   end
 
