@@ -1,0 +1,37 @@
+---
+title: ICFP 2016 Liveblog Index
+author: Gemma Gordon, Anil Madhavapeddy, Gabriel Scherer
+abstract: All the liveblogs
+---
+
+Welcome to the unofficial [ICFP 2016](http://conf.researchr.org/home/icfp-2016)
+liveblog!  This is a resource intended to capture the live notes of activity
+across the hundreds of talks that will be given at ICFP 2016 in Nara, Japan.
+Any attendee of the conference is welcome to contribute their notes here, and
+we will aggregate them after the event into an archive.
+
+To contribute, please click through to the individual talks in the list below:
+
+* **[HOPE](HOPE)** - *[homepage](http://conf.researchr.org/track/icfp-2016/hope-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHOPE)*
+* **[CUFP](CUFP)** - *[homepage](http://cufp.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ACUFP)*
+* **[Erlang](Erlang)** - *[homepage](http://conf.researchr.org/track/icfp-2016/erlang-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AErlang)*
+* **[FARM](FARM)** - *[homepage](http://functional-art.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFARM)*
+* **[FHPC](FHPC)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFHPC)*
+* **[Haskell](Haskell)** - *[homepage](https://www.haskell.org/haskell-symposium/2016/index.html)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHaskell)*
+* **[HIW](HIW)** - *[homepage](https://wiki.haskell.org/HaskellImplementorsWorkshop/2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHIW)*
+* **[ICFP](ICFP)** - *[homepage](http://conf.researchr.org/track/icfp-2016/icfp-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AICFP)*
+* **[ML](ML)** - *[homepage](http://www.mlworkshop.org/ml2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AML)*
+* **[OCaml](OCaml)** - *[homepage](http://ocaml.org/meetings/ocaml/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AOCaml)*
+* **[PLMW](PLMW)** - *[homepage](http://conf.researchr.org/track/PLMW-ICFP-2016/PLMW-ICFP-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3APLMW)*
+* **[Scheme](Scheme)** - *[homepage](http://scheme2016.snow-fort.org)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AScheme)*
+* **[TyDe](TyDe)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ATyDe)*
+
+Some useful resources:
+* ICFP preprints: <https://github.com/gasche/icfp2016-papers>
+* Conference website: <http://icfpconference.org>
+
+The site data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>.
+It is served via an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) 
+running on [Docker Cloud](http://cloud.docker.com).  The blog software is the [Canopy](https://github.com/engil/canopy)
+system built by [Enguerrand Decorne](https://github.com/Engil) during an internship at [OCaml Labs](http://ocaml.io)
+in Cambridge.
