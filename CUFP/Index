@@ -1,0 +1,30 @@
+---
+title: CUFP Index
+author: Gemma Gordon, Anil Madhavapeddy, Gabriel Scherer
+abstract: Click this for a summary of the talks and their times
+---
+
+* 0915-0920: [Opening remarks](opening-remarks.md)
+* 0920-1015: [Keynote](keynote.md)
+* 1035-1100: [Immutable infrastructure deployment with Haskell](immutable-infrastructure-deplo.md)
+* 1100-1125: [Developing a fast and durable pub/sub message bus](developing-a-fast-and-durable-.md)
+* 1145-1210: [Chaos testing with F# and Azure](chaos-testing-with-f-and-azur.md)
+* 1210-1235: [Building a web application with continuation monads](building-a-web-application-wit.md)
+* 1400-1425: [Creating an approachable Haskell-like DSL](creating-an-approachable-haske.md)
+* 1520-1545: [Composable caching in Swift](composable-caching-in-swift.md)
+* 1545-1610: [Guix: Scheme as a uniform OS admin and deployment interface](guix-scheme-as-a-uniform-os-a.md)
+* 1640-1705: [Baby steps to unikernels in production](baby-steps-to-unikernels-in-pr.md)
+* 1705-1755: [Hope is a monad](hope-is-a-monad.md)
+* 1755-1800: [Closing remarks](closing-remarks.md)
+* 0915-0920: [Opening remarks](opening-remarks.md)
+* 0920-1015: [Keynote](keynote.md)
+* 1035-1100: [Immutable infrastructure deployment with Haskell](immutable-infrastructure-deplo.md)
+* 1100-1125: [Developing a fast and durable pub/sub message bus](developing-a-fast-and-durable-.md)
+* 1145-1210: [Chaos testing with F# and Azure](chaos-testing-with-f-and-azur.md)
+* 1210-1235: [Building a web application with continuation monads](building-a-web-application-wit.md)
+* 1400-1425: [Creating an approachable Haskell-like DSL](creating-an-approachable-haske.md)
+* 1520-1545: [Composable caching in Swift](composable-caching-in-swift.md)
+* 1545-1610: [Guix: Scheme as a uniform OS admin and deployment interface](guix-scheme-as-a-uniform-os-a.md)
+* 1640-1705: [Baby steps to unikernels in production](baby-steps-to-unikernels-in-pr.md)
+* 1705-1755: [Hope is a monad](hope-is-a-monad.md)
+* 1755-1800: [Closing remarks](closing-remarks.md)
