@@ -12,6 +12,8 @@ let repo = "https://github.com/ocamllabs/icfp2016-blog/"
 let issues = repo ^ "issues/"
 let uri = "http://icfp2016.mirage.io/"
 
+let gitc = open_out "commit.sh"
+
 let findl all issue labels =
    List.fold_left (fun a day ->
      match a with
@@ -78,7 +80,9 @@ let all_issues = ref []
 let write_file fname b =
   let fout = open_out fname in
   output_string fout b;
-  close_out fout
+  close_out fout;
+  fprintf gitc "git add %s; git commit -m register\n" fname;
+  flush gitc
 
 let title_dir title =
   String.with_range ~first:0 ~len:30 title |>
@@ -97,9 +101,9 @@ let generate_page issue =
   let ampm = ampm_of_labels issue issue_labels in
   let event = event_of_labels issue issue_labels in
   if not (is_tutorial event) then begin
-  Printf.eprintf "%s %s %s\n%!" day event issue.T.issue_title;
   let time,title = parse_title issue issue.T.issue_title in
   let tdir = title_dir title in
+  Printf.eprintf "%s %s %s\n%!" day event issue.T.issue_title;
   let fname = Printf.sprintf "%s/%s/%s" basedir event tdir in
   ignore (Sys.command (Printf.sprintf "mkdir -p %S" fname));
   let tmpl = Printf.sprintf
