@@ -95,7 +95,6 @@ let title_dir title =
     | b -> a) ""
  
 let generate_page issue =
-  all_issues := issue :: !all_issues;
   let issue_labels = issue.T.issue_labels in
   let day = day_of_labels issue issue_labels in
   let ampm = ampm_of_labels issue issue_labels in
