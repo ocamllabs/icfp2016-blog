@@ -243,7 +243,7 @@ abstract: Click this for a summary of the talks and their times
 ---
 
 %s
-" event event articles in
+" event articles in
     write_file fname tmpl
   ) (List.filter (fun e -> not (is_tutorial e)) events)
 
