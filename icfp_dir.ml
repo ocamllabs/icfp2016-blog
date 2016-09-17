@@ -168,7 +168,7 @@ we will add you.  If you do not have access, just send a
 "---
 title: %s
 author: your-uid-here (your-name-here)
-abstract: at %s %s %s (%s 2016)
+abstract: %s %s %s (%s 2016)
 ---
 
 There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/%s/%s.md).
@@ -237,9 +237,9 @@ in Cambridge.
     in
     let tmpl = Printf.sprintf
 "---
-title: %s
+title: %s Index
 author: Gemma Gordon, Anil Madhavapeddy, Gabriel Scherer
-abstract: Event is %s
+abstract: Click this for a summary of the talks and their times
 ---
 
 %s
