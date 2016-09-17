@@ -28,6 +28,18 @@ let day_of_labels =
   [ "Sunday 18th"; "Monday 19th"; "Tuesday 20th"; "Wednesday 21st";
     "Thursday 22nd"; "Friday 23rd"; "Saturday 24th" ] |> findl
 
+let compare_day a b =
+  let int_of_day = function
+    | "Sunday 18th" -> 0
+    | "Monday 19th" -> 1
+    | "Tuesday 20th" -> 2
+    | "Wednesday 21st" -> 3
+    | "Thursday 22nd" -> 4
+    | "Friday 23rd" -> 5
+    | "Saturday 24th" -> 6
+    | _ -> failwith "unknown day"
+  in compare (int_of_day a) (int_of_day b)
+
 let ampm_of_labels = ["AM";"PM"] |> findl
 
 let events = 
@@ -66,8 +78,7 @@ let all_issues = ref []
 let write_file fname b =
   let fout = open_out fname in
   output_string fout b;
-  close_out fout;
-  print_endline ("Wrote " ^ fname)
+  close_out fout
 
 let title_dir title =
   String.with_range ~first:0 ~len:30 title |>
@@ -79,13 +90,14 @@ let title_dir title =
     | b when is_ok b -> a ^ (String.of_char b)
     | b -> a) ""
  
-let generate_page user repo issue =
+let generate_page issue =
   all_issues := issue :: !all_issues;
   let issue_labels = issue.T.issue_labels in
   let day = day_of_labels issue issue_labels in
   let ampm = ampm_of_labels issue issue_labels in
   let event = event_of_labels issue issue_labels in
   if not (is_tutorial event) then begin
+  print_endline issue.T.issue_title;
   let time,title = parse_title issue issue.T.issue_title in
   let tdir = title_dir title in
   let fname = Printf.sprintf "%s/%s/%s" basedir event tdir in
@@ -238,6 +250,25 @@ let get_user_repos =
     | _ -> eprintf "Repositories must be in username/repo format"; exit 1
   ) 
 
+let generate_pages () =
+  (* Generate the pages in order so that git creation dates are suitable for Canopy *)
+  List.iter (fun event ->
+    List.filter (fun i -> event_of_labels i i.T.issue_labels = event) !all_issues |>
+    (* order talks by last created *)
+    List.sort (fun a b ->
+      match compare_day (day_of_labels a a.T.issue_labels) (day_of_labels b b.T.issue_labels) with
+      | 0 ->
+         let atime,_ = parse_title a a.T.issue_title in
+         let btime,_ = parse_title b b.T.issue_title in
+         compare atime btime
+      | x -> x
+    ) |>
+    List.iter generate_page 
+  ) (List.filter (fun e -> not (is_tutorial e)) events)
+
+let gather_issues i =
+  all_issues := i :: !all_issues
+
 let print_issue token repos =
   (* Get the issues per repo *)
   get_user_repos repos |>
@@ -245,9 +276,10 @@ let print_issue token repos =
     Github.(Monad.(run (
       Issue.for_repo ~token ~user ~repo () |>
       Stream.to_list >|= 
-      List.iter (generate_page user repo)
+      List.iter gather_issues
     )))
   ) >|=
+  generate_pages >|=
   generate_indexes
 
 let cmd =
