@@ -97,7 +97,7 @@ let generate_page issue =
   let ampm = ampm_of_labels issue issue_labels in
   let event = event_of_labels issue issue_labels in
   if not (is_tutorial event) then begin
-  print_endline issue.T.issue_title;
+  Printf.eprintf "%s %s %s\n%!" day event issue.T.issue_title;
   let time,title = parse_title issue issue.T.issue_title in
   let tdir = title_dir title in
   let fname = Printf.sprintf "%s/%s/%s" basedir event tdir in
@@ -255,7 +255,7 @@ let generate_pages () =
   List.iter (fun event ->
     List.filter (fun i -> event_of_labels i i.T.issue_labels = event) !all_issues |>
     (* order talks by last created *)
-    List.sort (fun a b ->
+    List.sort (fun b a ->
       match compare_day (day_of_labels a a.T.issue_labels) (day_of_labels b b.T.issue_labels) with
       | 0 ->
          let atime,_ = parse_title a a.T.issue_title in
