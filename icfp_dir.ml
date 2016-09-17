@@ -233,7 +233,8 @@ in Cambridge.
       List.filter (fun i -> event_of_labels i i.T.issue_labels = event) !all_issues |> fun is ->
       String.concat ~sep:"\n" (List.map (fun i ->
         let time, title = parse_title i i.T.issue_title in
-        Printf.sprintf "* %s: [%s](%s.md)" time title (title_dir title)) is)
+        let day = day_of_labels i i.T.issue_labels in
+        Printf.sprintf "* %s %s: [%s](%s.md)" day time title (title_dir title)) is)
     in
     let tmpl = Printf.sprintf
 "---
