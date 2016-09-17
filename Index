@@ -30,8 +30,13 @@ Some useful resources:
 * ICFP preprints: <https://github.com/gasche/icfp2016-papers>
 * Conference website: <http://icfpconference.org>
 
-The site data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>.
-It is served via an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) 
-running on [Docker Cloud](http://cloud.docker.com).  The blog software is the [Canopy](https://github.com/engil/canopy)
-system built by [Enguerrand Decorne](https://github.com/Engil) during an internship at [OCaml Labs](http://ocaml.io)
-in Cambridge.
+Site Info:
+* Data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>
+* It is served via an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) running on [Docker Cloud](http://cloud.docker.com).
+* The blog software is the [Canopy](https://github.com/engil/canopy) system built by [Enguerrand Decorne](https://github.com/Engil) during an internship at [OCaml Labs](http://ocaml.io) in Cambridge.
+* The scripts for generating the Git templates are available [here](https://github.com/ocamllabs/icfp2016-blog/tree/code)
+
+ChangeLog:
+* 17th Sep 2016: [Blog Git repository](https://github.com/ocamllabs/icfp2016-blog) is open for edits! *-avsm*
+* 16th Sep 2016: Bug fixes in the [template generation branch](https://github.com/ocamllabs/icfp2016-blog/tree/code) *-avsm*
+* 16th Sep 2016: Site goes live on <http://icfp2016.mirage.io> *-avsm*
