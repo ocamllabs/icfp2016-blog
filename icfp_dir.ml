@@ -81,7 +81,7 @@ let write_file fname b =
   let fout = open_out fname in
   output_string fout b;
   close_out fout;
-  fprintf gitc "git add %s; git commit -m register\n" fname;
+  fprintf gitc "git add %s; git commit -m register; sleep 0.5\n" fname;
   flush gitc
 
 let title_dir title =
