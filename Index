@@ -27,11 +27,11 @@ To contribute, please click through to the individual talks in the list below:
 * **[TyDe](TyDe)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ATyDe)*
 
 Some useful resources:
+* Data is a Git repo at <https://github.com/ocamllabs/icfp2016-blog>; [PRs](https://help.github.com/articles/creating-a-pull-request/) welcome!
 * ICFP preprints: <https://github.com/gasche/icfp2016-papers>
 * Conference website: <http://icfpconference.org>
 
 Site Info:
-* Data is stored in a plain-text Git repository at <https://github.com/ocamllabs/icfp2016-blog>
 * It is served via an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) running on [Docker Cloud](http://cloud.docker.com).
 * The blog software is the [Canopy](https://github.com/engil/canopy) system built by [Enguerrand Decorne](https://github.com/Engil) during an internship at [OCaml Labs](http://ocaml.io) in Cambridge.
 * The scripts for generating the Git templates are available [here](https://github.com/ocamllabs/icfp2016-blog/tree/code)
