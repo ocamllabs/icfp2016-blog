@@ -4,23 +4,89 @@ author: your-uid-here (your-name-here)
 abstract: Sunday 18th 1600-1630 PM (PLMW 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/PLMW/how-to-write-papers-so-people-.md).
+Explaining your work is a big part of becoming a successful researcher.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/PLMW/how-to-write-papers-so-people-/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/33) for this talk
-* contribute your own notes by copying the [template](how-to-write-papers-so-people-/template.md) for this talk.
+The lack of technical sophistication is not the first factor of difficulty in
+reading PL papers. The first factor is that many papers are poorly written.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+The question the reader would like an answer to is: what does it do, and why
+should I care?
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=PLMW:how-to-write-papers-so-people-)
+There are principles that you can follow, based on how readers process
+information.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+These principles are constructive: if your paper doesn't follow them, they tell
+you how to transform to make it follow them.
 
+## Flow
+
+It should be clear how each sentence and paragraph relates to the adjacent ones.
+
+To achieve that, follow the "old to new" principle: begin sentences with old
+info and end them with new info. Also emphasise new information.
+
+But flow is not enough! You can have great flow but be completely incoherent.
+
+## Coherence
+
+It should be clear how each sentence and paragraph relates to *the big picture*.
+
+A paragraph should have one main point, expressed in a single point sentence.
+
+## Other principles
+
+* "Name your baby": give unique names to things and use names consistently
+* "Just in time": give information precisely when it is needed, not before.
+
+## Structure of a research paper
+
+A structure that works:
+* abstract (1000 readers)
+* Intro (100 readers)
+* Main ideas (50 readers)
+* Technical meat (5 readers)
+* Related work (100 readers)
+
+### CGI model for an abstract/intro
+
+* Context: set the stage, motivate the general topic
+* Gap: Explain your specific problem and why existing work does not adequately
+  solve it
+* Innovation: State what you've done that is new and explain how it fills the
+  gap.
+
+Alternative opinion: Simon Peyton-Jones advises to eliminate Context, e.g.
+"Consider this Haskell code…". If this works, it can be very effective, but I
+find it doesn't often work.
+
+### Main ideas section
+
+* Use concrete illustrative examples and high-level intuition
+* Do *not* show the general solution (keep it for the technical section).
+
+### Related work section
+
+1. It should go at the end of the paper. You can only properly compare to
+   related work once you've explained your own.
+2. Give real comparisons, not a "laundry list"! Explain in detail how your work
+   fills the gap that related work doesn't.
+
+---
+# Q&A
+
+Q: Do you have advice about paper titles?
+
+A: It's certainly very important and I spend a ridiculous amount of time on
+them, but I don't have constructive principles about them yet.
+
+Q: How much time should one spend on each section?
+
+A: In my opinion, the amount of time should be proportional to the expected
+number of readers (see above).
+
+---
+## Useful related books
+
+*Style: Toward clarity and grace*.
+*Learn technical writing in two hours per week*.
+Simon Peyton-Jones, *How to write a great research paper*.
