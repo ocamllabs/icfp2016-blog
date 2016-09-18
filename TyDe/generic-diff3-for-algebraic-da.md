@@ -4,23 +4,44 @@ author: your-uid-here (your-name-here)
 abstract: Sunday 18th 1045-1115 AM (TyDe 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/TyDe/generic-diff3-for-algebraic-da.md).
+The objective is to generalize diffs to algebraic data. The introductory example
+is a situation where 2 contributors try to modify a table at the same time:
+there can be merging conflicts even if they modified separated sets of cells.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/TyDe/generic-diff3-for-algebraic-da/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/15) for this talk
-* contribute your own notes by copying the [template](generic-diff3-for-algebraic-da/template.md) for this talk.
+If the diff3 algorithm knew about cells (rather than just trying to merge
+lines), then many conflicts (e.g. for changes on rows) could be avoided.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+The author proposes a generic diff3 algorithm with the following
+characteristics:
+* Algebraic Data Types
+* Typed Rose trees
+* Fine-grained
+* Formal Semantics
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=TyDe:generic-diff3-for-algebraic-da)
+The nature of edit scripts changes: while UNIX diff3 uses `delete`, insert and
+copy, we will use mapping.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+The goal is to properly formalize a 3-way merge operator for tree-like data
+structures.
+
+What happens if there is no source node for a mapping (i.e. pure insertion)? The
+idea is to go back to mapping by adding a "dummy" node to the original tree.
+
+## A Statically-Typed Algoritm
+
+We don't want the algorithm to produce ill-typed results, even though there may
+be no merge conflicts.
+
+## Questions
+
+Q: The aligning algorithm is too supple. For example, merging `[1] -> [2]` and
+`[1] -> [1, 1]` the answer is not unique: two valid merges are `[2, 1]` and `[1,
+2]`.
+
+A:
+
+When doing `[1,1] -> [1,1,1]`, how do you distinguish between prepending and
+appending.
+
+A: it is about minimizing the size of the edit script.
 
