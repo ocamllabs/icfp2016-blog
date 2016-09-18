@@ -1,6 +1,6 @@
 ---
 title: Unaccustomed as I am to public speaking
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Sunday 18th 1730-1800 PM (PLMW 2016)
 ---
 
