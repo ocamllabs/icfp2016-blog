@@ -1,6 +1,6 @@
 ---
 title: Program transformations for developing efficient and correct programs with ease
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Sunday 18th 1530-1600 PM (PLMW 2016)
 ---
 
