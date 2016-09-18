@@ -84,6 +84,10 @@ Q: How much time should one spend on each section?
 A: In my opinion, the amount of time should be proportional to the expected
 number of readers (see above).
 
+Q: Any tips for turning a paper into a presentation?
+
+A: Sorry, that would need a whole presentation!
+
 ---
 ## Useful related books
 
