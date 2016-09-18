@@ -1,8 +1,10 @@
 ---
 title: Generic diff3 for algebraic datatypes
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Sunday 18th 1045-1115 AM (TyDe 2016)
 ---
+
+[preprint pdf in ACM Digital Library](http://dl.acm.org/citation.cfm?id=2976026)
 
 The objective is to generalize diffs to algebraic data. The introductory example
 is a situation where 2 contributors try to modify a table at the same time:
