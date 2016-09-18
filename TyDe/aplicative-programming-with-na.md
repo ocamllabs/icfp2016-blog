@@ -1,26 +1,24 @@
 ---
 title: APLicative programming with Naperian Functors
-author: your-uid-here (your-name-here)
+author: yomimono (Mindy Preston)
 abstract: Sunday 18th 0935-0955 AM (TyDe 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/TyDe/aplicative-programming-with-na.md).
+[Paper preprint PDF](http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/apl-extabs.pdf)
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/TyDe/aplicative-programming-with-na/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/4) for this talk
-* contribute your own notes by copying the [template](aplicative-programming-with-na/template.md) for this talk.
-
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
-
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=TyDe:aplicative-programming-with-na)
-
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+* arrays can have varying numbers of dimensions, and many functions apply to many ranks of arrays - binary operators included (although sizes must match, so there are some type constraints).
+* "a bit more interestingly" there's a "reranking" operator that lets you act on columns, not rows (for a matrix) - is that meaningful for arrays of dimensionality <> 2?
+* "the arguments of a binary operator need not have the same rank" - there's implicit promotion to a higher-ranked array. (But other constraints apply once you've done this -- the shapes have to match.)
+* "typing rank polymorphism" - paper "an array-oriented language with static rank polymorphism", recent work on [remora](https://github.com/jrslepak/remora) ([discussion](http://lambda-the-ultimate.org/node/5329)) which has static types for shape checking.  Lots of figures... let's make it type-driven! :D
+* type definitions for vectors; we'll see lots of definitions for variable-length arrays probably today
+* that's not enough for `vreplicate`, though.  [hasochism](http://homepages.inf.ed.ac.uk/slindley/papers/hasochism.pdf) isn't fully needed, because we don't need all of type-level natural numbers; instead, define a class `count` of natural numbers.
+* so then the vectors are an applicative functor.  use applicatives as what it means to be a dimension of a matrix (vectors suffice, but so do pairs, or block-structured matriced).  Dimensions can have structure!
+* ...but `applicative` isn't enough for `transpose`, which you need for reranking.  The subclass of applicative functors called Naperian functors works, though -- "if all the values of that type have a common shape".  "The class of applicative functors that commute with each other", and that isomorphism means we can use these for `transpose`.
+* for things like `sum`, we need `Foldable`; for things like `sums`, we need `Traversable`.
+* acceptable array dimensions then are `class (Naperian f, Traversable f) => Dimension f`.
+* to make arrays *with* these dimensions, use a nested datatype; then we can do useful promotions nicely
+* there are further constraints though - need to index by dimensions, which here is a type-level list (???) I get lost here.
+* alignment - "it's the innermost types that should match", "they're alignable if one is a prefix of the other".  need to work out the shortest common prefix for binary operations
+* further, it's possible to get a flat representation, which you can shove into a fast GPU backend like Accelerate
+* "I don't need to build a hand-rolled type system when I have a sufficiently flexible language whose types already accommodate what I want to do"
 
