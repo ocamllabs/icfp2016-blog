@@ -42,6 +42,7 @@ Site Info:
 * The scripts for generating the Git templates are available [here](https://github.com/ocamllabs/icfp2016-blog/tree/code)
 
 ChangeLog:
+* 19th Sep 2016: Mark HOPE, TyDE, PLMW as complete and rearrange the Index. 
 * 17th Sep 2016: [Blog Git repository](https://github.com/ocamllabs/icfp2016-blog) is open for edits! *-avsm*
 * 16th Sep 2016: Bug fixes in the [template generation branch](https://github.com/ocamllabs/icfp2016-blog/tree/code) *-avsm*
 * 16th Sep 2016: Site goes live on <http://icfp2016.mirage.io> *-avsm*
