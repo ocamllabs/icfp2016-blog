@@ -4,7 +4,7 @@ author: jdjakub (Joel Jakubovic)
 abstract: Sunday 18th 1400-1430 PM (PLMW 2016)
 ---
 
-Original paper "Battles with False Positives in Static Analysis of JS Web apps in the Wild"
+Original paper "Battles with False Positives in Static Analysis of JS Web apps in the Wild" ([ACM](http://dl.acm.org/citation.cfm?id=2889227) 
 
 Ideal program: identify exact set of bugs. Infeasible.
 
