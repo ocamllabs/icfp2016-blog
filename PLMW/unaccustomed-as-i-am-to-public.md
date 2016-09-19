@@ -1,26 +1,36 @@
 ---
 title: Unaccustomed as I am to public speaking
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Sunday 18th 1730-1800 PM (PLMW 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/PLMW/unaccustomed-as-i-am-to-public.md).
+I want you to think of a research talk as a performance. Start with something
+unexpected/a joke to get your audience's attention in the first 2 minutes.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/PLMW/unaccustomed-as-i-am-to-public/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/39) for this talk
-* contribute your own notes by copying the [template](unaccustomed-as-i-am-to-public/template.md) for this talk.
+Talk *to* the audience, look them in the eyes. Ask them questions: "Who really,
+really loves testing?" It should be easy to answer and you should which answer
+you're expecting to get.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Don't waste time going into detail about the outline of your talk.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=PLMW:unaccustomed-as-i-am-to-public)
+Explain too much rather than too little. Try to stay accessible to the least
+technical people in the room.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Please use an example to introduce a problem. But that's not enough! You must
+also show them why they should care about it. Turn a small technical matter in
+terms of life and death (example of a self-driving car).
 
+Everything you put on a slide, you should want your audience to read it.
+Everything else is a distraction. Also, if you know a large part of the audience
+won't see the bottom part of the screen, don't put anything in it!
+
+Many people use the slides as a teleprompter. Don't do that.
+
+Use rather key figures in enourmous fonts rather than blocks of text with
+explanations.
+
+You can use a script: what you want is bullet points in a large font to know
+where you are in the talk, and maybe one or two key phrases.
+
+Having some catch phrases pre-planned is a good idea, especially if English is
+not your native language.
