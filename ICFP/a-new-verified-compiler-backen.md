@@ -4,23 +4,55 @@ author: your-uid-here (your-name-here)
 abstract: Monday 19th 1340-1405 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/a-new-verified-compiler-backen.md).
+CakeML is a descendant of ML. It has formalized semantics in HOL4.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/a-new-verified-compiler-backen/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/50) for this talk
-* contribute your own notes by copying the [template](a-new-verified-compiler-backen/template.md) for this talk.
+* End-to-end verified compilation from CakeML to x86-64.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+## v1.0 drawbacks
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:a-new-verified-compiler-backen)
+* Too low-level for FP optimizations, awkward for target-specific optimizations.
+* Only one target available.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+## v2.0
+
+* New backend designed for verified optimizations
+* Configurable + multiple targets
+* Basic support for FFI
+* 12 ILs for optimization.
+
+## ClosLang
+
+ClosLang is a new IL of v2.0. It allows for functional-style optimizations, like
+multi-argument functions and closure conversion.
+
+## CakeML backend
+
+* Values in terms of 32-/64-bit words
+* Configurable data representation
+
+The new backend also introduces an abstract GC specification.
+
+Next step:
+* Concretize stack representation
+* Flatten code, compile to assembly
+* Encode assembly to target ISA.
+
+## Compiler semantics preservation
+
+### Observational semantics preservation
+
+If the semantics of a program is not an error, then it is preserved by
+compilation (up to the point where it stops with an out-of-memory error).
+
+Proof sizes: 100 K lines of HOL4, 6 developers, 2 years. We have a fine-grained
+control over the role of each IL.
+
+To achieve this, data abstraction has complex invariants.
+
+## Ongoing & future work
+
+* Charguéraud's characteristic formulæ (ICFP '10, '11)
+* New compiler optimizations
+* v2.0 compiler bootstrap
+* Generational garbage collection
 
