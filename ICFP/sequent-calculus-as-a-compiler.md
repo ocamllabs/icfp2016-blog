@@ -1,6 +1,6 @@
 ---
 title: Sequent calculus as a compiler intermediate language
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Monday 19th 1405-1430 PM (ICFP 2016)
 ---
 
