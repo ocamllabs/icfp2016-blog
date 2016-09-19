@@ -1,26 +1,46 @@
 ---
-title: Analyzing JavaScript web applications in the wild (mostly) statically
-author: your-uid-here (your-name-here)
+title: PLMW 2016: Analyzing JavaScript web applications in the wild (mostly) statically
+author: jdjakub (Joel Jakubovic)
 abstract: Sunday 18th 1400-1430 PM (PLMW 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/PLMW/analyzing-javascript-web-appli.md).
+Original paper "Battles with False Positives in Static Analysis of JS Web apps in the Wild" ([ACM](http://dl.acm.org/citation.cfm?id=2889227) 
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/PLMW/analyzing-javascript-web-appli/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/26) for this talk
-* contribute your own notes by copying the [template](analyzing-javascript-web-appli/template.md) for this talk.
+Ideal program: identify exact set of bugs. Infeasible.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Run on multiple platforms. "Run, Rabbit, Run!" - Minesweeper clone from Tizen. Uncaught TypeError exception if you modify some settings before playing the game. Many web sites have tons of JS errors - just keep console open, and stare in awe!
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=PLMW:analyzing-javascript-web-appli)
+Score will now have value undefined.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Ebay: product values eg `NaN`
 
+Would obviously benefit from static analysis. Traditionally: we value soundness; include all possible bugs. Which means some false positives.
+
+Some clients used to C, C++, Java ... not JS.
+
+Tried analyzer on apps - 55 true positives 334 false!
+
+One reason: dynamically (runtime) loaded JS code!
+
+Most false positives: W3C APIs, browser-specific APIs, and libs eg jQuery.
+
+For many browser-specific control paths, often not completely exhaustive with respect to different browsers + versions, so does not play nice with static analysis.
+
+### JS File paths
+
+Often, many loaded JS files not actually used. Such as test files for RequireJS.
+Others: locale-specific files; only one used at once.
+
+### Snapshot
+
+ECMAScript spec: all code runs in host env; browser or OS platform
+Snapshot is a capturing app; get snapshot for each browser. Sound for a given browser and given version.
+
+### Model
+Lots of libs. JS freestyle; no / little standardization. Pass any args to functions, implicit conversions, etc. Platform-specific / native code methods e.g. get contact / use SIM card phone services.
+
+Type-based model e.g. with TypeScript. Only looking at function applications, etc. No simulation of side effects. Joins the dots.
+
+3 metrics: precision: 55 -> 91 true positives. 334 -> 240 false positives.
+
+**SAFE:** Scalable Analysis Framework for ECMAScript.
