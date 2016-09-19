@@ -1,26 +1,53 @@
 ---
 title: Introduction to dependent types
-author: your-uid-here (your-name-here)
+author: jdjakub (Joel Jakubovic)
 abstract: Sunday 18th 1430-1500 PM (PLMW 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/PLMW/introduction-to-dependent-type.md).
+Kyan: a language for dependent types by Lenoard Angessen (?)
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/PLMW/introduction-to-dependent-type/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/27) for this talk
-* contribute your own notes by copying the [template](introduction-to-dependent-type/template.md) for this talk.
+Idea: type-safe printf!
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Dependent types: Types that refer to programs. Agda as example
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=PLMW:introduction-to-dependent-type)
+What if these programs have side effects? Handle specially...
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+```
+data Tag : Type where
+  `unit : Tag
+  `nat : Tag
+  `string : Tag
+  `list : Tag -> Tag
+  _`{\times}_ : Tag -> Tag -> Tag
+```
 
+```
+Data : Tag -> Type
+Data `unit = Unit
+Data 'nat = Nat
+Data `string = String
+Data (`list t) = List (Data t)
+Data (t1 `{\times} t2) = Data t1 \times Data t2
+```
+
+```
+somedata : Data ( `nat `\times `list `string)
+somedata = 5, ("hi" :: [])
+```
+
+```
+toString : \forall (t : Tag) -> Data t -> String
+toString `unit d = "()"
+toString `nat Z = "0"
+toString `nat (S d) = "1+" ^ toString `nat d
+toString `string d = d
+toString (`list t) [] = "[]"
+toString {`list t) (x :: xs) = toString t ^ "::" ^ toString (`list t)
+toString (t1 \times t2) d = toString t1 (fst d) ^ toString t2 (snd d)
+
+printf "%s, you signed up for %d talks today %l%s" ("Dan", 2, "Types of types" :: "A taste of deptypes :: [])
+
+Args : List Char -> Tag
+Args s with parseFormat s
+  | Some (f, rest) = f `\times Args rest
+```
