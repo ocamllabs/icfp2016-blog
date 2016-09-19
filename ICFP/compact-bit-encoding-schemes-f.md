@@ -1,26 +1,43 @@
 ---
 title: Compact bit encoding schemes for simply-typed lambda-terms
-author: your-uid-here (your-name-here)
+author: ciaran16 (Ciaran Lawlor)
 abstract: Monday 19th 1700-1725 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/compact-bit-encoding-schemes-f.md).
+Presenting two types of encoding schemes - tagless coding and grammar based coding.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/compact-bit-encoding-schemes-f/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/56) for this talk
-* contribute your own notes by copying the [template](compact-bit-encoding-schemes-f/template.md) for this talk.
+Why bit encoding? Higher-order data compression. Theoretically optimal up to an additive constant.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Previous bit encoding schemes are not compact enough.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:compact-bit-encoding-schemes-f)
+###Tagless Coding
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+lambda term -> sequence of symbols -> bit code
 
+Need to know how to convert lambda terms into a sequence of symbols. A simple way would be to use the string of the lambda term? A slightly better idea is to have a sequence of the types of each variable, and a sequence of the variables. The original lambda term can be recovered from this.
+
+(I am lost) Examples, Showing Correctness
+
+Experiments show that tagless works better than previous encoding schemes.
+
+Compared to a bit encoder for grammar-based compression, tagless coding worked better some of the time, and for other benchmarks the tagless coding had about 10% more overhead. This is likely due to the limitations of tagless encoding.
+
+Some of the limitations:
+- Different bit codes are assigned to equivalent (but different) lambda terms.
+- Bit codes are assigned to invalid sequences.
+
+###Grammar based Coding
+
+lambda term -> derivation sequence based on CFG of ? -> bit code
+
+So first we need to generate the CFG, then use arithmetic coding of the CFG to produce bit codes.
+
+Now we can assign the same bit code to equivalent terms (as far as possible) by preparing 'normalization' rules and restricting the CFG so only 'normalized' terms can be generated. And bit codes cannot be assigned to invalid sequences anymore? So this solves the limitations of tagless coding.
+
+Experiments - comparison with previous encodings show that it is almost as good as a CFG specific encoding.
+
+###Future work
+
+Applications other than higher-order data compression
+
+A more efficient implementation for grammar based coding.
