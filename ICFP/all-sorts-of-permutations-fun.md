@@ -4,6 +4,8 @@ author: ciaran16 (Ciaran Lawlor)
 abstract: All sorts of permutations (Functional Pearl)
 ---
 
+*[Paper PDF](http://informatik.uni-kiel.de/~sad/icfp2016-preprint.pdf)*
+
 This is about writing non-deterministic algorithms, then concatenating all possibilities to get all solutions.
 
 First we will talk about a slightly simpler problem - computing sublists. Computing a sublist non-deterministically is filtering it with a predicate that non-deterministically returns true or false (like a coin flip). Every possible non-deterministic value will then give every possible sublist.
