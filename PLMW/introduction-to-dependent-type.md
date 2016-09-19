@@ -4,7 +4,7 @@ author: jdjakub (Joel Jakubovic)
 abstract: Sunday 18th 1430-1500 PM (PLMW 2016)
 ---
 
-Kyan: a language for dependent types by Lenoard Angessen (?)
+[Cayenne](https://en.wikipedia.org/wiki/Cayenne_(programming_language)): a language for dependent types by (Lennart Augustsson](https://en.wikipedia.org/wiki/Lennart_Augustsson)
 
 Idea: type-safe printf!
 
