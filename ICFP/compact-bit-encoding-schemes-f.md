@@ -10,7 +10,7 @@ Why bit encoding? Higher-order data compression. Theoretically optimal up to an 
 
 Previous bit encoding schemes are not compact enough.
 
-###Tagless Coding
+### Tagless Coding
 
 lambda term -> sequence of symbols -> bit code
 
@@ -26,7 +26,7 @@ Some of the limitations:
 - Different bit codes are assigned to equivalent (but different) lambda terms.
 - Bit codes are assigned to invalid sequences.
 
-###Grammar based Coding
+### Grammar based Coding
 
 lambda term -> derivation sequence based on CFG of ? -> bit code
 
@@ -36,7 +36,7 @@ Now we can assign the same bit code to equivalent terms (as far as possible) by 
 
 Experiments - comparison with previous encodings show that it is almost as good as a CFG specific encoding.
 
-###Future work
+### Future work
 
 Applications other than higher-order data compression
 
