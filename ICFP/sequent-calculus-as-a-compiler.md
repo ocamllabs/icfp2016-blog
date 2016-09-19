@@ -4,23 +4,69 @@ author: your-uid-here (your-name-here)
 abstract: Monday 19th 1405-1430 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/sequent-calculus-as-a-compiler.md).
+Lambda code has been used as an IL in compilers for decade. But another useful
+IL is sequent calculus.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/sequent-calculus-as-a-compiler/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/51) for this talk
-* contribute your own notes by copying the [template](sequent-calculus-as-a-compiler/template.md) for this talk.
+# A compiler's job
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Turn a source (feature-rich) into machine code (detail-rich). Most of the time,
+we need an intermediate language in the middle (e.g. Core in Haskell).
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:sequent-calculus-as-a-compiler)
+Another way to use lambda calculus is CPS IL: CPS Core = Core - non-tail calls.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+# The Sequent Calculus
 
+Natural deduction ~ lambda-calculus: "closer to mathematicians' reasoning"
+
+Sequent calculus: "easier to reason about" ~ ???
+
+The language associated to SC is a language with left-right dichotomy: producers
+and consumers. It still has some high-level features such as binding and
+substitution.
+
+NB: Gentzen discovered statically-typed call stacks in the 1930s.
+
+The corresponding flow chart would resemble:
+
+~~~
+source -----> Core -----> Sequent Core -----> Machine
+      desugar    translate         generate code
+~~~
+
+Sequent Core contrasts data-flow and control-flow. Computations happen when
+computations meet values.
+
+# The two roles of Continuations
+
+## Continuation as Evaluation Contexts
+
+Say what to do with the intermediate results in a program.
+
+## Continuation as Join Points
+
+A common point is where several branches of a control flow join together.
+
+These two notions are very different.
+
+## Evaluation Centexts vs Join Points
+
+"But join points sound a lot like functions!"
+
+They are, but very special functions: always tail-called, don't return; never
+escape their scope.
+
+# Implementation in GHC
+
+* Implemented as a GHC plugin
+* Use 2-way translation to lift Sequent Core optimizations into Core-to-Core
+passes.
+
+# What did Sequent Core teach us?
+
+* "Continuations* serve at least 2 roles
+* Sequent Calculus is great at representing negative types (functions)
+* Not just intuitionistic: join points are classical feature that can be tamed
+for purity
+* Go beyond administrative-normal form
+* Control flow not just for strict languages; it's great for lazy languages,
+too.
