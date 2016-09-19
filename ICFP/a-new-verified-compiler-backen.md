@@ -1,6 +1,6 @@
 ---
 title: A new verified compiler backend for CakeML
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Monday 19th 1340-1405 PM (ICFP 2016)
 ---
 
