@@ -4,23 +4,41 @@ author: your-uid-here (your-name-here)
 abstract: Wednesday 21st 1035-1100 AM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/ghostbuster-a-tool-for-simpli.md).
+This talk is about Iris, a logic we want to apply to verify the safety of Rust.
+Its key contribution is to show how to extend Iris with higher-order ghost
+state (see below).
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/ghostbuster-a-tool-for-simpli/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/75) for this talk
-* contribute your own notes by copying the [template](ghostbuster-a-tool-for-simpli/template.md) for this talk.
+This work is part of the RustBelt project, which aims to prove the safety of the
+language and its associated library.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Iris (POPL 2015) is built on 2 mechanisms: invariants and user-defined ghost
+state.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:ghostbuster-a-tool-for-simpli)
+Ghost state has a common structure: PCM or partial commutative monoid, i.e. a
+set M with an associative, commutative composition operation. So ghost state is
+any partial commutative monoid.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+With Iris, we can derive the more complex reasoning principles from the
+fundamental logic. BUT for specifying some concurrency logic, these fundations
+aren't enough!
 
+Iris 1.0 could not handle higher-order ghost state. The contributions of this
+work is to show that HOGS is useful and show how to extend Iris with it.
+
+# Named propositions
+
+We give fresh names to propositions. These propositions do not have to hold!
+
+Giving a fresh name allocates a new slot in a "table". We then seek agreement
+about that row of the table.
+
+# Conclusion
+
+* Other examples of HOGS can be found in the paper
+* We showed how to simplify the model with CMRAs
+* We have a Coq formalization
+
+# Ongoing work
+
+* Encode invariants using HOGS
+* Applying named propositions in the safety proof of Rust
