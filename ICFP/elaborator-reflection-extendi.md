@@ -1,26 +1,50 @@
 ---
 title: Elaborator reflection: extending Idris in Idris
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Tuesday 20th 1530-1555 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/elaborator-reflection-extendi.md).
+Exhortation: "You should control your programming language!"
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/elaborator-reflection-extendi/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/68) for this talk
-* contribute your own notes by copying the [template](elaborator-reflection-extendi/template.md) for this talk.
+# Extend Your Compiler
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+We can extend our compiler with new features without having to rebuild it from
+scratch.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:elaborator-reflection-extendi)
+## How does it work?
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Inside Idris, we have a Core Language called TT. The translation from high-level
+Idris to TT is called *elaboration*.
 
+## Elaboration Challenges
+
+* Disambiguation
+* All these are interpendent
+
+This internalizes a Haskell monad with states and errors.
+
+## Tactics
+
+* intro
+* fill
+* focus
+* claim
+* resolveTC (typeclass)
+* search
+
+# Metaprogramming with Dependent Types
+
+Several approaches:
+* Internal metaprogramming
+* Tatic languages
+* Reified Expressions
+All have downsides.
+
+New approach in Idris: directly expose the elaborator of metaprograms.
+This involves a type `Elab a`.
+
+Then the speaker gave a bunch of complicated examples that use `Elab`.
+
+# Re-use Capabilities of Your Compiler
+
+Capabilities of the compiler can be re-used, e.g. to elaborate DSLs.
