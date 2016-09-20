@@ -1,7 +1,7 @@
 ---
-title: ICFP 2016: A glimpse of Hopjs
+title: A glimpse of Hopjs
 author: ciaran16 (Ciaran Lawlor)
-abstract: A glimpse of Hopjs
+abstract: Tuesday 20th 1035-1100 AM (ICFP 2016)
 ---
 
 A multitier programming language for programming web applications - client side and server side. It also can be used for one client and many servers, all communicating with each other. It automatically splits what is executed on the client side and server side.
