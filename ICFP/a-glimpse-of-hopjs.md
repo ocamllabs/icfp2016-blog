@@ -1,26 +1,35 @@
 ---
-title: A glimpse of Hopjs
-author: your-uid-here (your-name-here)
-abstract: Tuesday 20th 1035-1100 AM (ICFP 2016)
+title: ICFP 2016: A glimpse of Hopjs
+author: ciaran16 (Ciaran Lawlor)
+abstract: A glimpse of Hopjs
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/a-glimpse-of-hopjs.md).
+A multitier programming language for programming web applications - client side and server side. It also can be used for one client and many servers, all communicating with each other. It automatically splits what is executed on the client side and server side.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/a-glimpse-of-hopjs/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/60) for this talk
-* contribute your own notes by copying the [template](a-glimpse-of-hopjs/template.md) for this talk.
+Based on JavaScript - mostly ECMA Script 5, but with several extensions:
+- Built in HTML support, HTML can be inserted directly, understands HTML so will be checked.
+- Tilde (~) expressions to indicate it should be executed on the client side. Tilde expressions can be nested.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Server side DOM as well which can be manipulated as normal - can use querying, filtering etc on the DOM.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:a-glimpse-of-hopjs)
+### Services
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Support for web services.
 
+Can create web services which abstracts away GET / POST requests into function calls.
+
+Can also wrap external web services.
+
+### Parallelism in Hopjs
+
+JavaScript isn't multithreaded. Workers and promises to the rescue.
+
+Web workers running in parallel.
+
+Promises can used instead of asynchonrous callbacks. Used for POST etc.
+
+### Questions
+
+Q:
+
+A: Everything is implemented in Scheme.

@@ -4,6 +4,8 @@ author: OlivierNicole (Olivier Nicole)
 abstract: Tuesday 20th 1150-1215 AM (ICFP 2016)
 ---
 
+Datafun - a langauge that has been discovered / invented. Somewhere between the two.
+
 Datafun is:
 * a simply-typed lambda-calculus
 * where types are posets & some are semilattices
@@ -11,7 +13,7 @@ Datafun is:
 * to let you compute fixed points
 * and know they terminate.
 
-# Tracking monotonicity
+## Tracking monotonicity
 
 * Two types of function: discrete or monotone
 * Two kinds of variable: discrete or monotone
