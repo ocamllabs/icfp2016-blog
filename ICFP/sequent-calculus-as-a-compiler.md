@@ -4,6 +4,8 @@ author: OlivierNicole (Olivier Nicole)
 abstract: Monday 19th 1405-1430 PM (ICFP 2016)
 ---
 
+*[Paper PDF](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/sequent-calculus-icfp16.pdf)*
+
 Lambda code has been used as an IL in compilers for decade. But another useful
 IL is sequent calculus.
 

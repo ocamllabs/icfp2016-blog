@@ -4,7 +4,8 @@ author: OlivierNicole (Olivier Nicole)
 abstract: Monday 19th 1340-1405 PM (ICFP 2016)
 ---
 
-CakeML is a descendant of ML. It has formalized semantics in HOL4.
+[CakeML](http://cakeml.org) is a descendant of ML. It has formalized semantics in HOL4.
+Full paper: [PDF](https://cakeml.org/icfp16.pdf)
 
 * End-to-end verified compilation from CakeML to x86-64.
 
