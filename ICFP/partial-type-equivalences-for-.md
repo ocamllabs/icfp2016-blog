@@ -1,26 +1,22 @@
 ---
 title: Partial type equivalences for verified dependent interoperability
-author: your-uid-here (your-name-here)
+author: ciaran16 (Ciaran Lawlor)
 abstract: Tuesday 20th 1555-1620 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/partial-type-equivalences-for-.md).
+Dependently typed programs often have to interact with simply typed or untyped programs (system calls, libraries). The dependent interoperability framework trades static guarantees for run-time checks. Our framework is developed in Coq.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/partial-type-equivalences-for-/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/69) for this talk
-* contribute your own notes by copying the [template](partial-type-equivalences-for-/template.md) for this talk.
+### Use cases
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+- Use simply-typed library in dependently-typed context
+- Use dependently-typed library in simply-typed context
+- Dynamic verification of simply-typed components
+- Safe(r) extractions of dependently typed programs
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:partial-type-equivalences-for-)
+### Partial Type Equivalences
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Formal, constructive foundations of dependent interoperability.
 
+By proving first-order equivalences you get higher-order equivalences verified for free.
+
+E.g. vector and list are not fully equivalent. But they have partial type equivalence. By proving this we get verification that  functions over lists and vectors are equivalent.

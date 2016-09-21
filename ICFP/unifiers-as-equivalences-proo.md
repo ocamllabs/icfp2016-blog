@@ -1,26 +1,49 @@
 ---
 title: Unifiers as equivalences: proof relevant unification of dependently typed data
-author: your-uid-here (your-name-here)
+author: ciaran16 (Ciaran Lawlor)
 abstract: Tuesday 20th 1505-1620 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/unifiers-as-equivalences-proo.md).
+Agda uses unification to eliminate impossible cases and specialise the result type.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/unifiers-as-equivalences-proo/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/67) for this talk
-* contribute your own notes by copying the [template](unifiers-as-equivalences-proo/template.md) for this talk.
+The output of unification can change Agda's notion of equality.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Flavors of type theory - Classical, Homotopy Type Theory, Syntactic
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:unifiers-as-equivalences-proo)
+We want something that works for all flavors. A purely syntactic algorithm won't work.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+**Core idea** - unification should return evidence of unification in the form of an equivalence.
 
+### Unifiers as equivalences
+
+A *unification problem* consists of a context of free variables, and equations.
+
+This can be represented as a *telescope*. "A telescope is a list of types where each type can depend on values of the previous types. Each type in this telescope corresponds to one equation of the unification problem." (from the paper)
+
+A *unifier* consists of a reduced context and a substitution.
+
+This can be represented as a *telescope map*.
+
+A *most general unifier* is one such that any other unifier can be composed from the most general unifier.
+
+A most general unifier is an equivalence between telescopes.
+
+### Proof-relevant unification
+
+? rule
+
+Deletion rule (requires uniqueness of identity proofs)
+
+Conflict rule
+
+Cycle rule
+
+### Depending on equations
+
+???
+
+Telescopic equality - Solution: keep track of dependencies by introducing a new variable for each equation.
+
+### Conclusion
+
+We have a new definition of the most general unifier internal to the type theory that is correct by construction and can be used to compile pattern matching to eliminators.
