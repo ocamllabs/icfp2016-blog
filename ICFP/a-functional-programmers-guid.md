@@ -4,23 +4,33 @@ author: your-uid-here (your-name-here)
 abstract: Wednesday 21st 0915-1015 AM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/a-functional-programmers-guid.md).
+When we think about CPOs, every function has the property that is preserves the
+partial order.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/a-functional-programmers-guid/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/74) for this talk
-* contribute your own notes by copying the [template](a-functional-programmers-guid/template.md) for this talk.
+In the world of homotopy type theory, types are spaces containing points and
+paths.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+A homotopy is a continuous deformation that transforms one path into another.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:a-functional-programmers-guid)
+# Functions "secretly" act on paths
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+A function doesn't only maps points to points, it maps paths to paths.
 
+# Applicative interface
+
+With applicatives, unlike with monads, effects can influence the values but not
+the structure of computations.
+
+Every monad is an applicative already.
+
+Adapting code from one interface to another is quite boring and morally, we
+shouldn't have to do it more than once! And precisely, there is a bijection
+between the old and the new interfaces of Monad.
+
+That's the idea of univalence.
+
+**Path-related types do not have same elements but paths between types induce
+bijections.**
+
+Voevodsky's univalence axiom postulates that, conversely: bijections between
+elements induce paths.
