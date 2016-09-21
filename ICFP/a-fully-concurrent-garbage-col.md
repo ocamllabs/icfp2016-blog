@@ -4,23 +4,51 @@ author: your-uid-here (your-name-here)
 abstract: Wednesday 21st 1420-1445 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/a-fully-concurrent-garbage-col.md).
+All abstractions should be implemented on top of native threads. C is doing
+this! ML is not.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/a-fully-concurrent-garbage-col/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/81) for this talk
-* contribute your own notes by copying the [template](a-fully-concurrent-garbage-col/template.md) for this talk.
+A major obstacle is stop-the-world GCs. We propose a GC that never interferes
+with allocation.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Observation: these can scale up to massively many threads.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:a-fully-concurrent-garbage-col)
+Technical point: how to take snapshot without stopping multiple mutators?
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Block allocation never incurs contention. And the number of mutators is bound to
+the number of segments.  There are no interferences between mutator and
+collector.
+
+# Snapshot GC algorithm
+
+1. Start a collection cycle at t0
+2. Start a collector thread.
+3. Somehow save H(t0)
+4. Somehow push R(t0) to the trace stack
+5. Other steps…
+
+How to save H(t0)?
+
+1. save H(t0) from memory update
+2. save H(t0) from allocation
+
+In our work we use the idea of handshaking [Doligez & Gonthier '94].
+
+The sources of memory contention are only:
+1. The set of segments
+2. The tracing stack.
+
+See paper for details.
+
+# Performance evaluation
+
+Overhead is 12 % on average.
+
+In terms of speedup, concurrent is comparable to stop-the-world. Speed-up is up
+to ×8 whereas we have 16 cores.
+
+# Conclusions
+
+We developed a concurrent collector.
+* never stops any mutators
+* for functional programs with many threads
 
