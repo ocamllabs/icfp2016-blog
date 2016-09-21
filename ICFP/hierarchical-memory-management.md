@@ -4,23 +4,69 @@ author: your-uid-here (your-name-here)
 abstract: Wednesday 21st 1330-1355 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/hierarchical-memory-management.md).
+# A Fundamental Property
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/hierarchical-memory-management/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/79) for this talk
-* contribute your own notes by copying the [template](hierarchical-memory-management/template.md) for this talk.
+In purely functional programs, pointers always point up the heap hierarchy. We
+call this property *disentanglement*.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+# Enforcing Disentanglement
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:hierarchical-memory-management)
+* A path P is a stack of heaps from a local expression up to the root.
+* Restrict heap accesses to heaps in the path.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+If lookup never fails, then disentanglement holds.
 
+If type safety for lambda_HP then disentanglement and memory safety hold as
+corollaries.
+
+# Implementation
+
+## Scheduling
+
+* We use a work-stealing scheduler that allows tasks to fork new tasks onto a
+queue tand idle processors to steal tasks from other processor queues.
+
+## Superheaps
+
+* Creating heaps is expensive, so defer them to steals.
+
+## Superheap structure
+
+* Superheaps hold allocations from multiple directly descendant tasks.
+* A new superheaps is used for stolen tasks.
+
+* Memory is split into "levels".
+* A level is activated when the corresponding task is stolen by another
+processor.
+* Disentanglement holds between levels.
+
+## Local collection
+
+* Local collection is done bottom-up, level-by-level in a single superheap up to
+the lowest activated level.
+* Disentanglement ensures that a level will not have to be revisited once
+complete.
+
+# Evaluation Design
+
+Does well except on a raytracer benchmark where it's beaten by its competitor
+`manticore`.
+
+# Conclusion
+
+* Closely couple memory manager to program.
+* Proved memory safety.
+* Implementation shows promising performance.
+
+See paper for:
+
+* Proof of semantics preservation.
+* Discussion of practical design.
+* Analysis of benchmarks.
+
+Future work:
+
+* Support for other forms of parallelism.
+* Support some form of mutable state.
+* Develop a more mature implementation that implements non-local collection in
+addition to local collection.
