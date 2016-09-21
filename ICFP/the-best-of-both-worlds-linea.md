@@ -1,26 +1,46 @@
 ---
 title: The best of both worlds: Linear functional programming without compromise
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole)
 abstract: Wednesday 21st 1530-1555 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/the-best-of-both-worlds-linea.md).
+Let's put linear types and functional programming together and see what happens!
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/the-best-of-both-worlds-linea/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/83) for this talk
-* contribute your own notes by copying the [template](the-best-of-both-worlds-linea/template.md) for this talk.
+* Types distinguish whether functions can be copied or discarded
+* Central problem: generic combinator programming with multiple function types.
+This is why we are not programming in linear functional languages today.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+We introduce a Qualified Linear Language.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:the-best-of-both-worlds-linea)
+# Linearity and overloading
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+```
+\x -> x + x
+```
+
+* Type of x must be numeric and unrestricted.
+
+```
+\x -> let (y,z) = dup x in y + z
+```
+
+* Unrestricted types have methods:
+  ```
+  dup :: t -> t × t
+  drop :: t -> 1
+  ```
+* Corresponds to interpretation of exponential modality via a commutative monoid
+  (Filinsky, Seely)
+
+# See in the paper
+
+* Session types
+* Monads
+
+Metatheory:
+* Principal types and type inference
+* Type safety
+* Conservative extension of existing functional languages
+
+Prototype implementation… coming very soon.
 
