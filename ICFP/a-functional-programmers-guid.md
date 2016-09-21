@@ -4,6 +4,8 @@ author: your-uid-here (your-name-here)
 abstract: Wednesday 21st 0915-1015 AM (ICFP 2016)
 ---
 
+# In a world when all functions secretly "do" something…
+
 When we think about CPOs, every function has the property that is preserves the
 partial order.
 
@@ -34,3 +36,19 @@ bijections.**
 
 Voevodsky's univalence axiom postulates that, conversely: bijections between
 elements induce paths.
+
+# Which types act on paths?
+
+* It works for: product types, sum types, (co)inductives types…
+* It doesn't work for: intersection types and intensional type analysis.
+
+# Datatypes with paths
+
+Example: patches in a version control system are paths [Angiuli, Morehous, L.,
+Harper]. `Repos` is a type containing all possible repositories.
+
+Then paths between paths correspond to *laws* we want our patches to comply
+with.
+
+Big picture: move from semantics where all functions **are** something to
+semantics where all functions **do** something.
