@@ -1,10 +1,10 @@
 ---
-title: Extracting from F* to C: a progress report
+title: Extracting from F-star to C: a progress report
 author: avsm (Anil Madhavapeddy)
 abstract: Thursday 22nd 1100-1125 AM (ML 2016)
 ---
 
-Protzenko is going to talk about [F*](https://www.fstar-lang.org) to C compiltion.
+Protzenko is going to talk about [F-star](https://www.fstar-lang.org) to C compiltion.
 
 Related work:
 * Bedrock was the deep embedding of C into Coq. You can prove functional correctness (and memory safety) using nice DSL.
@@ -23,32 +23,32 @@ lot of math that needs to be written using direct machine integers.
 ## Theory
 
 Pipeline is:
-* from F* to extraction/erasure which goes to Low*
-* Low* can be that can be simuated to C*, which can be proved to C
+* from F-star to extraction/erasure which goes to Low-star
+* Low-star can be that can be simuated to C*, which can be proved to C
 * C* is an idealised C
 
-Low* is a first order low level fragment of F*:
+Low-star is a first order low level fragment of F-star:
 * limited subset of C - stack allocated buffers and locally mutable variables
 * Code is written against a new library called HyperStack.
 * Code has to match pre and post conditions to be considered safe
-* Low* is an expression language with semantics by substitution.
+* Low-star is an expression language with semantics by substitution.
 
 C* is much closer to C:
 * Statement lanuage
 * Semantics with continuation contexts ('telescope')
-* Much lower level language than Low*
+* Much lower level language than Low-star
 
-For Low* to C* there is a refinement step that shows that every compilation
+For Low-star to C* there is a refinement step that shows that every compilation
 step is valid in the high level program. Every reduction step in C* maps to a
-set of valid reduction rules in Low*.  Therefore C* program only does "things"
-allowed by the original semantics of Low*.
+set of valid reduction rules in Low-star.  Therefore C* program only does "things"
+allowed by the original semantics of Low-star.
 
-This is the CompCert style which works if C* is deterministic (yes) and Low* is
+This is the CompCert style which works if C* is deterministic (yes) and Low-star is
 safe (yes).
 
 This gives us safety and observational equivalence of traces which is super
 important for crypto code due to side channel attacks (when you branch, can
-reveal information).  If a Low* program is side channel free then same holds
+reveal information).  If a Low-star program is side channel free then same holds
 for C* (very important).  This means tht parametricity can be used to show side
 channel resistance (next work in progress).
 
@@ -59,6 +59,6 @@ The memory mode:
 * A special parameterised push and pop frame function
 * Use a Stack effect to present the layout of the stack and not allocate in any other frame. This is impossible in the C model and so the stack effect can be used to compile C functions.
 
-The tool is called KreMLin which takes type erased F* and ensures it can convert from Low* to C*.
+The tool is called KreMLin which takes type erased F-star and ensures it can convert from Low-star to C*.
 
 *speaker shows a demo of KreMLin*
