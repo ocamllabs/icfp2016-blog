@@ -4,23 +4,19 @@ author: your-uid-here (your-name-here)
 abstract: Thursday 22nd 1145-1210 AM (ML 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ML/compiling-with-continuations-a.md).
+How to do efficient compilation from Manticore to LLVM?
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ML/compiling-with-continuations-a/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/103) for this talk
-* contribute your own notes by copying the [template](compiling-with-continuations-a/template.md) for this talk.
+Manticore's runtime model is quite different from C. Efficient first-class continuations are used for concurrency, and work stealing parallelism and exceptions. Return continutions are passed as arguments to functions. Since continuations are heap allocated, this makes `callcc ` cheap. Functions return by throwing to an explicit continuation.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+The mismatch is moving from CPS to LLVM IR.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ML:compiling-with-continuations-a)
+* efficient reliable tail calls
+* garbage collection
+* preemption and multithreading
+* first class continuations
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+This is a problem shared by many higher order languages who want to use LLVM.
 
+Efficient reliable tail calls are hard to do in LLVM. LLVM tail call support is shaky, and fixes are difficult. LLVM at least manages to clean up tail calls, but efficiency remains a problem. Every single function call is a tail call in Manticore so any overhead is going to impact.
+
+*shows an x86 call stack with prologue and stack realignment*
