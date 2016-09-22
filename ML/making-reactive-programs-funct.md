@@ -115,4 +115,33 @@ characterizes the linearity of time:
 Programmers know it as `select`,  which reads as "give me an eventually A and an
 eventually B, and I will eventually return an A or a B".
 
+# Conclusion
 
+* ML is an old, higher-order imperative programming language
+* Curry-Howard for LTL offers a realistic efficient approach to purely
+functional reactive programs
+
+Q: How does this model relates to the synchronous dataflow paradigm developed in
+France?
+A: The work I'm doing can be seen as a higher-order version of dataflow. The
+downside is that we lose resource bound guarantees. But we gain the possibility
+of doing dynamically changing behaviour (necessary for GUI).
+
+Q: Why are you so attached to the notion of time, whereas some say that reactive
+programming is more about consistency?
+A: I favour the former because the building of an "abstract state"
+competitionnally is highly non-trivial.
+
+Q: Can you insure that all the event handlers actually terminate and that the
+system is responsive?
+A: We believe we do guarantee termination, but that doesn't guarantee
+responsiveness.
+
+Q: In synchronous dataflow languages, there is a notion of clock and streams can
+go at different rates. Have you considered this?
+A: Others have (*gives examples*). I haven't pursued this because I was more
+interested in stream languages.
+
+Q: Do causal models like event structures have anything to offer here?
+A: Maybe they do. So far, I haven't needed anything more than that. I will need
+   to solve some more obvious problems first.
