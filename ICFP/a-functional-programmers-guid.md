@@ -1,6 +1,6 @@
 ---
 title: A functional programmer's guide to homotypy type theory
-author: your-uid-here (your-name-here)
+author: OlivierNicole (Olivier Nicole), yomimono (Mindy Preston)
 abstract: Wednesday 21st 0915-1015 AM (ICFP 2016)
 ---
 
