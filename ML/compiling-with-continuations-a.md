@@ -44,3 +44,15 @@ Performance is good except for a minor regression involving autovectorisation.
 Conclusion:
 * Upstreaming JWA convention to LLVM.
 * More implementation detail in a tech report and applying this to SML/NJ in the future.
+
+## Q&A
+
+*Q:* LLVM seems like a lot of work for just 10% performance.
+*A:* nofib in ghc is similar since we want good benchmarks. In this case though wanted all benchmarks since it is both preliminary and also attempting to measure tail call cost specifically.
+
+*Q: (spj):* LLVM sees non idiomatic code since it gets CPS transformed code from Manticore. Can we get more idiomatic code to LLVM so it can have a better chance.
+*A:* Many of LLVM's analyses are loop analysis but many of our loops are tail calls so they wont work.  Otherwise this is true since we want to use LLVM as a code generator and not an optimiser.  There is a mismash between C calls and JWA though.
+
+*Q: (sdolan):* Can we use deep calls with JWA instead of using CPS?
+*A:* considered it but is a wip
+
