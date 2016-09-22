@@ -111,4 +111,14 @@ higher order logic.  Proof uses nominal step indexed Kripke logical relations
 (Andrew Pitts, Derek Dreyer et al have been developing these over the last
 decade).
 
+Do these make any sense to the working programmer? *shows complex typing rules
+on one slide, to general laughter*.  The types include LTL's next-step modality
+for stable a and next-A is LTL's always modality, which have good Curry-Howard
+natural deducation for LTL (specifically, the model _u_-calculus).
+
+In the case of (e.g.) emacs (the editor for middle ages computer scientists), we want
+it to do not do something on every timestep. For GUI apps, we want them to
+sleep and not be busy-looping. However for games (immediate rendering), the LTL
+interpretation works since they are running at high speed.  For programs that
+are event driven though, we need a different interpretation to the LTL model.
 
