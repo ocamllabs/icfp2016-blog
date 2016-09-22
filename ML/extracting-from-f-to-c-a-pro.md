@@ -4,7 +4,7 @@ author: avsm (Anil Madhavapeddy)
 abstract: Thursday 22nd 1100-1125 AM (ML 2016)
 ---
 
-Protzenko is going to talk about F* to C compiltion.
+Protzenko is going to talk about [F*](https://www.fstar-lang.org) to C compiltion.
 
 Related work:
 * Bedrock was the deep embedding of C into Coq. You can prove functional correctness (and memory safety) using nice DSL.
@@ -52,5 +52,13 @@ reveal information).  If a Low* program is side channel free then same holds
 for C* (very important).  This means tht parametricity can be used to show side
 channel resistance (next work in progress).
 
-## F* code and libraries
+The memory mode:
+* list of stack frames
+* tip of the current stack frame tracked
+* Each stack frame maps locations to values
+* A special parameterised push and pop frame function
+* Use a Stack effect to present the layout of the stack and not allocate in any other frame. This is impossible in the C model and so the stack effect can be used to compile C functions.
 
+The tool is called KreMLin which takes type erased F* and ensures it can convert from Low* to C*.
+
+*speaker shows a demo of KreMLin*
