@@ -84,3 +84,31 @@ system for things that change over time vs constant factors.  The constraint
 will be to prevent the programmer from using facts in the present which would
 use up our RAM if they had to be tracked for the future.  So lets add some
 new types for the "type of Stable A" _vs_ "always A".
+
+We can define a fine program that defines a `const` function which returns a
+stable A, and forbid it being called.
+
+Audience Q (Ralf): If you wrote the old leaky program, how would it get
+rejected?  A: If you get a boxed stream of natural numbers it would pass the
+typechecker, but there would be no inhabitants and so it wouldnt be possible to
+call the function without help.
+
+How to implement this?  Idea: stable A are pointers to code:
+* For the thunk on the tick it is scheduled to run.
+* Replace the thunk with its value to avoid reconmputtion
+* Set the pointer to nul on the timestep after its lifetime.
+* Nulling pointers guarantees the absence of space leaks.
+
+Q: can we set this up for the GC to collect when it goes out of scope?
+A: yes we can! but there are no guarantees that there are no null pointer exceptions :)
+
+The language has higher order funcions and the implementation has higher order
+state, so we need lots of advaned semantic technicals from higher order
+imperative/concurrent programs -- but only once, for the implementation of the
+language and not for every single program.  It is possible to prove that this
+will not happen by using some of the modern modern techniques of reasoning over
+higher order logic.  Proof uses nominal step indexed Kripke logical relations
+(Andrew Pitts, Derek Dreyer et al have been developing these over the last
+decade).
+
+
