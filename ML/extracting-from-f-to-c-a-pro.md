@@ -62,3 +62,14 @@ The memory mode:
 The tool is called KreMLin which takes type erased F-star and ensures it can convert from Low-star to C*.
 
 *speaker shows a demo of KreMLin*
+
+KreMLin is open source and the flagshpi code is 12k lines of * code (bignum, curve, chacha20, poly1305 and AEAD)
+
+## Questions
+
+*Q:* cogen is another project which wanted human-readable C code.
+*A:* there is a culture clash which is a big social problem between engineers who know C code and can do code review. The shallow embedding in F* also means that performance can be controlled very well. The tool doesnt do a whole lot of rewriting so.
+
+*Q:* can you say a bit more about parametricity?
+*A:* you want to define an interface where the function cannot be informative (i.e. leak information).
+
