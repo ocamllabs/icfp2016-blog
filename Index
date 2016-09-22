@@ -13,20 +13,20 @@ we will aggregate them after the event into an archive.
 To contribute, please click through to the individual talks in the list below:
 
 Currently ongoing:
-* **[ICFP](ICFP)** - *[homepage](http://conf.researchr.org/track/icfp-2016/icfp-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AICFP)*
+* **[ML](ML)** - *[homepage](http://www.mlworkshop.org/ml2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AML)*
+* **[Haskell](Haskell)** - *[homepage](https://www.haskell.org/haskell-symposium/2016/index.html)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHaskell)*
 
 Workshops later this week:
 * **[Erlang](Erlang)** - *[homepage](http://conf.researchr.org/track/icfp-2016/erlang-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AErlang)*
 * **[FARM](FARM)** - *[homepage](http://functional-art.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFARM)*
 * **[FHPC](FHPC)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFHPC)*
-* **[Haskell](Haskell)** - *[homepage](https://www.haskell.org/haskell-symposium/2016/index.html)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHaskell)*
 * **[HIW](HIW)** - *[homepage](https://wiki.haskell.org/HaskellImplementorsWorkshop/2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHIW)*
-* **[ML](ML)** - *[homepage](http://www.mlworkshop.org/ml2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AML)*
 * **[OCaml](OCaml)** - *[homepage](http://ocaml.org/meetings/ocaml/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AOCaml)*
 * **[Scheme](Scheme)** - *[homepage](http://scheme2016.snow-fort.org)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AScheme)*
 * **[CUFP](CUFP)** - *[homepage](http://cufp.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ACUFP)*
 
 Completed events: (if you have notes to contribute, please help by [sending them](https://github.com/ocamllabs/icfp2016-blog) in; wifi at the event was spotty so some of these got no coverage at all)
+* **[ICFP](ICFP)** - *[homepage](http://conf.researchr.org/track/icfp-2016/icfp-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AICFP)*
 * **[HOPE](HOPE)** - *[homepage](http://conf.researchr.org/track/icfp-2016/hope-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHOPE)*
 * **[TyDe](TyDe)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ATyDe)*
 * **[PLMW](PLMW)** - *[homepage](http://conf.researchr.org/track/PLMW-ICFP-2016/PLMW-ICFP-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3APLMW)*
