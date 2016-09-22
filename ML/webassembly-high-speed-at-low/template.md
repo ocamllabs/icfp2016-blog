@@ -1,53 +1,88 @@
 ---
 title: ML 2016: WebAssembly: high speed at low cost for everyone
-author: whoami (Anonymous)
+author: jdjakub (Joel Jakubovic)
 abstract: WebAssembly: high speed at low cost for everyone
 ---
 
-This is the template for you to liveblog about the talk,
-which is at [ML](http://www.mlworkshop.org/ml2016)2016 on Thursday 22nd 1035-1100 AM.  You can replace all of this text
-with your notes about the talk!
+WebAssembly - new binary format to bring *native perf* to web
 
-Some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* background summaries or links that would be useful to a reader
-  that has not read the paper.
-* any questions the audience asks which may not be recorded correctly
-* the URL to the paper, which could be found on the [ICFP preprint](https://github.com/gasche/icfp2016-papers) repo.
+Participation of major browser vendors.
 
-There are a couple of ways to contribute your text to the ICFP 2016 liveblog.
-First check GitHub [issue #97](https://github.com/ocamllabs/icfp2016-blog/issue/97) and
-add a note that you are blogging to let other people know.
+Zillion compilers that target JS - but pretty ill matched as a compilation target. Can also include JS-bad features eg threads.
 
-If you are familiar with the [Git](http://git-scm.com) CLI, then:
-* git clone <https://github.com/ocamllabs/icfp2016-blog.git>
-* copy this template into `icfp2016-blog/ML/webassembly-high-speed-at-low/<your-userid>.md` where you can record your notes.
-* You can push this file regularly or issue a pull request at your own pace.
+Even though JS can have within 20% of native perf, we want *reliable* and *predictable* perf.
 
-If you prefer a web UI:
-* navigate [to the GitHub for this talk](https://github.com/ocamllabs/icfp2016-blog/tree/master/ML/webassembly-high-speed-at-low)
-* click on *Create a New Page* and name it `<your-github-user>.md`
-* place the header below at the top of the file, and then add your notes.
+Will supersede asm.js and Google's NaCl.
 
-```
----
-title:
-author: <your-id> (your-name)
-abstract:
----
+Not a PL, technically - not for humans to write.
+Also not a new VM - same web engine.
+Not limited to the web (actually, neither Web nor Assembly...)
+Not encumbered by copyrights, patents, etc.
 
-your notes
----
-```
+## Goals
+Semantics
+--
+Language-independent
+HW independent - factor out commonalities of modern CPUs
+Fast to execute
+Safe to execute
+Deterministic and easy to reason about
 
-Do not forget to push your notes back to the <https://github.com/ocamllabs/icfp2016-blog> repository.
-Anyone who wishes to contribute is most welcome to liveblog here, and do not worry about your notes
-being in rough shape; this is expected for a liveblog!
-Send photos or other social media taken during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ML:webassembly-high-speed-at-low).
+Rep
+--
+Compact
+Easy to generate
+Fast to decode + validate + compile
+Streamable
+Parallelizable
 
-If you want direct push access to the repository, please contact
-Anil Madhavapeddy (avsm2@cam.ac.uk), Gemma Gordon (gg417@cam.ac.uk)
-or KC Sivaramakrishnan (sk826@cam.ac.uk) and
-we will add you.  If you do not have access, just send a
-[pull request](https://help.github.com/articles/about-pull-requests/) and we will merge it.
 
+Bytecode, stack machine. Operates on machine word types. *Structured* control flow! No spaghetti jumps. By def, no irreducible control flow.
+
+Q: What about C?
+A: Paper about translating those control structs into this style.
+
+Also, fully typed!
+
+As usual with S-expressions, was an initial concrete syntax but got adopted as official! (hahaha)
+
+1.0 almost stable, tech previews available. Want to be on par with asm.js, focussing initially on C/C++.
+
+Validation as type sys, plus small-step op semantics.
+
+Currently, specified by implementation (:D) in OCaml!
+
+All the usual advantages of FP apply. Fast, took 3 days to get up and running. How can anybody still survive without ADTs and pattern matching? Functors avoid duplication, plus OCaml let us easily use many low-level types eg int23/64, bigarrays.
+
+Culture clash: most people are compiler hackers with C/C++ backgrounds:
+
+"I cannot read this, makes me sad"
+"Can we redo this in a real language, C++ or Python(!)"
+"Could you please use longerVariableNames?"
+
+Barriers to entry:
+More avoidable things; unfortunate OCaml design decisions.
+Lack of op overloading.
+Nominal record labels.
+Semicolon / double semicolon weirdness.
+"Syntax error." nuff said.
+Functors - barrier to entry for many.
+
+Pitfalls
+Unspecified evaluation order.
+Syntax quirks (rock-paper-scissors precedence of `if` vs `let` vs `;`)
+Which equality to use?
+OCamlyacc - get source positions statefully. ("Use Menhir!")
+Unstable NaNs
+No float32, lack of unsigned arithmetic
+
+Ecosystem
+Windows (lack of) support
+Build system churn - huge batch file D:
+
+The future
+Better support for HLL - already started work, looking at next year. GC, tail calls, closures, exceptions, etc
+Write compilers for your fave HLL, help us overcome the JS monopoly!
+
+Q: Does your MVP have a way of reaching DOM from C?
+A: You can import JS function calls.
