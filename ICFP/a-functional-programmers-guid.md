@@ -17,7 +17,7 @@ paths.
 
 A homotopy is a continuous deformation that transforms one path into another.
 
-# Functions "secretly" act on paths
+#### Functions "secretly" act on paths
 
 A function doesn't only maps points to points, it maps paths to paths.
 
