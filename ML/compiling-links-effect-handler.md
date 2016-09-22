@@ -1,6 +1,6 @@
 ---
 title: Compiling Links effect handlers to the OCaml backend
-author: your-uid-here (your-name-here)
+author: avsm (Anil Madhavapeddy)
 abstract: Thursday 22nd 1425-1450 PM (ML 2016)
 ---
 
@@ -43,4 +43,24 @@ This has been built as a backend to OCaml.  The backend uses the Lambda backend 
 
 The important restriction is that continuations have to be one-shot in OCaml and an exception is raised if it is called more than once.  This for performance reasons in the memory representation.
 
+A performance graphs shows that an Lwt based version (an interpreter) outperforms the compiler, which is problematic. Idea is to use the linear type system of Links to track the lifetime of handlers and then use that to optimise outputs.
 
+Can we use the effect system to propagate linearity information?  Ideally we want to know when we need a multishot effect _vs_ a single shot effect to same lot of time.
+
+The linear type system is not quite enough to capture tombstones.  For instance, if we have two channels that are both listening on a value P.
+
+Author is the first external user of multicore OCaml!
+
+## Q&A
+
+Q: Do you need multishot continuations in Links?
+A: They are useful for backtracking computations, and so envisions using them in transactions in databases.  But would be nice to not depend on them massively.
+
+Q: What extensions to linear typing systems are needed?
+A: missed answer
+
+Q: can we mix OCaml and Links in same program?
+A: Yes! 
+
+Q: can call OCaml from Links and not the other way around right? This would break invariants in OCaml
+A: *discussion ensues, rough consensus being that linearity in OCaml might also be needed*
