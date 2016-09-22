@@ -66,3 +66,47 @@ We want a _formal_ specification with validation as a type system and small-step
 **What went well with this**: All the usual functional programming advantages hold; fast development (3 days for initial interpreter). Fair concise and "speccy" code with lots of types and not too many bugs. ADTs and pattern matching are really essential! Functors avoid code duplication and many low-level types are available in OCaml (int32/64) so that blocks of memory can be accessed directly and cast appropriately. OCaml also good toolchain and available on many platforms that WebAssembly runs on.
 
 However there was a clash of cultures since most people on WebAssembly are LLVM/C++ hackers and unfamilar with OCaml.
+
+Pitfalls:
+* Lack of operator overloading (int32/64) was annoying due to their pervasive use int he codebase.
+* Nominal record label were a problem. Q: Why not use record disambiguation A: lots of warnings and its a half solution. Q: Why not use objects. A: Obviously not *audience laughter* but seriously due to lack of pattern matching on them.
+* Semicolon confusion
+* Syntax errors are abysmal
+* Type inference and error messages
+* Unspecified evaluation order since you have to pull code out into `let` bindings
+* Syntax quirks (if vs let vs semicolon)
+* Multiple equalities but no proper ones.
+* Stateful source positions in ocamlyacc. Audience: use [menhir](http://gallium.inria.fr/~fpottier/menhir/)!
+
+Wasm specific problems:
+* No float32 and no unsigned arithmetics
+* Unstable NaNs
+* Big arrays limited to int size
+
+Ecosystem:
+* Binaries unavailable, particular Windows
+* Build system churn and Windows solution. Generate a batch file to have a one button solution.
+
+## Overall
+
+Reference interpreter worked well, and is an official requirement for Wasm
+feature adoption.  Its mostly maintained by 1-2 people so it needs more
+contributors.  Its hard to read for those with no FP or formal semantics
+backgrounds.
+
+This version is 1.0 but what we really want is better support for high-level languges.  Multiple return values, GC, tagged value, closures, tail calls, exceptions, threads, SIMD and so on.
+
+## Questions
+
+*Q:* Have you looked at languages which do different stack things than C?
+Haskell or Scheme for example (callcc).  *A:* Stack support isnt quite adequate
+for C, which has to build a shadow stack since it is trusted in WA.  The
+requirements for other languages are understood but not in 1.0. Go people also
+want stack support but this will come later after 1.0.
+
+*Q:* Have you thought about inter language interop?  *A:* Previous VMs have
+this object model builtin which is required for interop but there is always an
+impedance mismatch in these models. So WebAssembly doesnt really try -- it is
+essentially a hardware abstraction and clients have to design their own interop
+mechanism. *Q:* Does MVP have a C FFI? *A:* JavaScript is the FFI and WA can
+call directly into it
