@@ -143,7 +143,7 @@ require higher order state to implement. The implementations are "obviously
 correct" but we cant prove it!  Step indexed logical relations cant prove
 liveness, but we need new techniques to formally reason about it.
 
-Summary:
+### Summary
 
 This is exciting because although ML is an old language from the 70s, there
 are still important lessons to be learnt from it in the application to all these
@@ -151,7 +151,7 @@ exciting new techniques.
 Plain old sequential ML has lots of mysteries to it that we need to understand
 that we can use to scale to prove the liveness of concurrent programs. 
 
-Questions:
+### Questions
 
 *Q:* The model typing seems to be similar to the French school of synchronous
 dataflow paradigm.
@@ -178,3 +178,9 @@ understand how to compose these.
 and the difficult part of concurrent programming.  If we want ordinary recursion
 in our language, we probably want to look at termination calculi to avoid
 sliding hard problems under the carpet.
+
+*Q:* Can we ensure all the event handlers terminate to ensure system responsiveness?
+*A:* Yes except for underlying runtime. Howevert this doesnt guarantee responsiveness
+since this is the ordinary lambda calculus and you can have towers of exponentials.
+The more basic problem of termination still exists before this is solved.
+
