@@ -48,13 +48,16 @@ registered and modified.  Any one of these things would be a PhD to reason in,
 but working programmers are expected to get this right without any such
 assistance!
 
-Hudak et all designed Functional Reactive Programming to get get around this
-(Elliott andd Hudak, ICFP 97) by viewing dynamically varying state as a
-_stream_. Interactive programming is a stream transducer that takes streams of
-inputs to outputs. They are nice because they can be defined recursively and
-"look and feel" like a normal functional program.  With FRP, we have all the
+Hudak et all designed [Functional Reactive
+Programming](https://en.wikipedia.org/wiki/Functional_reactive_programming) to
+get get around this (Elliott andd Hudak, ICFP 97) by viewing dynamically
+varying state as a _stream_. Interactive programming is a stream transducer
+that takes streams of inputs to outputs. They are nice because they can be
+defined recursively and "look and feel" like a normal functional program.  With
+FRP, we have all the
 primitives of a normal functional program.
 
+**Trouble in paradise: Causality variations**:
 However when you try to use FRP with the stream transducer program, it works
 great when it works, but bugs are really hard to find.  For example, causality
 is difficult: example given of a stock trading program where tomorrow's price
@@ -69,3 +72,15 @@ available now would be "next int" that will be available later and not
 accessible straight away.  In this model, taking the tail of a list would give
 you a "next int" instead of an "int".
 
+**Trouble in paradise 2: space leaks**:
+A leaky program is easy to make in two programs which are syntactically exactly
+the same except for their types.  One leaks and one doesnt, which is very
+confusing to the working programmers.  Once you add time to a language, values
+have intensional content.
+
+A value may be constant over time (i.e. use fixed memory) or change over time
+(i.e. use up increasing memory over time).  We need a distinction in the type
+system for things that change over time vs constant factors.  The constraint
+will be to prevent the programmer from using facts in the present which would
+use up our RAM if they had to be tracked for the future.  So lets add some
+new types for the "type of Stable A" _vs_ "always A".
