@@ -135,3 +135,46 @@ This is what the familiar `select` function does -- given an *eventually A* and
 a *eventually B*, give me one of them and lose the other one.  Implementing
 `sync` between two eventual values requires higher order state and allocating
 an empty reference cell.
+
+**The Correctness story?**
+
+Proof theoretically we have normalisation results for LTL, but the axioms
+require higher order state to implement. The implementations are "obviously
+correct" but we cant prove it!  Step indexed logical relations cant prove
+liveness, but we need new techniques to formally reason about it.
+
+Summary:
+
+This is exciting because although ML is an old language from the 70s, there
+are still important lessons to be learnt from it in the application to all these
+exciting new techniques.
+Plain old sequential ML has lots of mysteries to it that we need to understand
+that we can use to scale to prove the liveness of concurrent programs. 
+
+Questions:
+
+*Q:* The model typing seems to be similar to the French school of synchronous
+dataflow paradigm.
+*A:* Lucid Esterel etc are a family of dataflow languages that compile to a
+state machine given a set of recursive equations. The work here can be understood
+as a higher-order version of synchronous dataflow. We lose the ability to compile
+to non-allocating state machines, but that is lost with higher order functions.
+However we gain the ability to do dynamic dataflow graphs which is important for
+GUIs.
+
+*Q:* Yaron Minsky, to address why dont we use it more?  FRP approaches it wrong
+because the problems arent about time but rather about consistency. In the real
+world, you keep your state a a pure type, your view as a pure function which
+renders it, and normal functions to modify the state.  What is compelling about
+the time oriented view _vs_ a simpler optimisation view?
+
+*A:* React/Elm view an immutable set of GUI state and use clever diffs to model
+it.  We represent the state explicitly and then render it. At a fundamental
+level a stream is a representation of a state machine, and it is important to
+understand how to compose these.
+
+*Q:* Do we really want termination?
+*A:* Easy answer: I do! Realistic answer: want to rule out deadlocks and livelocks
+and the difficult part of concurrent programming.  If we want ordinary recursion
+in our language, we probably want to look at termination calculi to avoid
+sliding hard problems under the carpet.
