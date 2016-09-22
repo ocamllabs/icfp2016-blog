@@ -122,3 +122,16 @@ sleep and not be busy-looping. However for games (immediate rendering), the LTL
 interpretation works since they are running at high speed.  For programs that
 are event driven though, we need a different interpretation to the LTL model.
 
+Callback APIs can be made to work in this LTL model by using "not box, not
+event" which is the classic LTL "eventually".
+
+**Continuation Monad:** This all looks like callbacks in CPS form though? Is this just the continuation
+monad though, which JavaScript people already exploit via `Promise.resolve` and
+`Promise.then`.  The LTL eventual modality is more than just the CPS monad though.
+
+    *a x *b -> * ( a x *b  + *a x b )
+
+This is what the familiar `select` function does -- given an *eventually A* and
+a *eventually B*, give me one of them and lose the other one.  Implementing
+`sync` between two eventual values requires higher order state and allocating
+an empty reference cell.
