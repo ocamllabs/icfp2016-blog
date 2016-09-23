@@ -4,23 +4,24 @@ author: your-uid-here (your-name-here)
 abstract: Friday 23rd 1425-1450 PM (OCaml 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/OCaml/ocaml-inside-a-dropin-replac.md).
+*The speaker starts by showing an example of playing a video through a channel
+encrypted using ocaml-tls*.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/OCaml/ocaml-inside-a-dropin-replac/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/153) for this talk
-* contribute your own notes by copying the [template](ocaml-inside-a-dropin-replac/template.md) for this talk.
+# Challenges
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+* Libraries are mostly written in C, and used by C programs.
+* Memory management, language idioms.
+* Does switching to another language introduce an important performance loss?
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=OCaml:ocaml-inside-a-dropin-replac)
+# Introducing the library
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+It is a C binding to `ocaml-tls`. It is compatible with LibreSSL's `libtls`. It
+aims at being safer than `libtls`, OCaml being by essence a safer language than
+C.
 
+# Performance
+
+* `libnqsb-tls% is around 70 % as fast as `libtls` in comparable conditions.
+* Attempted comparison with pure `ocaml-tls` shows a 10 % decrease overall.
+
+This library can run inside OpenBSD software like `curl`.

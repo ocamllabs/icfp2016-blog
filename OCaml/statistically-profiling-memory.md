@@ -4,23 +4,57 @@ author: your-uid-here (your-name-here)
 abstract: Friday 23rd 1040-1105 AM (OCaml 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/OCaml/statistically-profiling-memory.md).
+"Why does my program eat so much memory?"
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/OCaml/statistically-profiling-memory/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/143) for this talk
-* contribute your own notes by copying the [template](statistically-profiling-memory/template.md) for this talk.
+# Solution 1: profiling allocations
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+One may use a generic profiler for the runtime, with a focus on allocations. But
+released blocks will not be counted, therefore the heap will not be faithfully
+measured.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=OCaml:statistically-profiling-memory)
+# Solution 2: attach meta-data to blocks
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+At each allocation, attach meta-data about the allocation point and when needed,
+analyze the metadata on the heap. This approach is used by `ocp-memprof`
+(identifier of allocation site) and `Spacetime` (pointer to call graph). But
+this incurs an overhead.
 
+# A statistical memory profiler
+
+**Track only a small, representative fraction of allocations.**
+
+The overhead is much lower.
+
+Characteristics:
+* Tunable sampling rate.
+* Relevant information even for low sampling rates.
+* Ability to attach much larger metadata, hence to get full stack traces, the
+  values of some variables, etc.
+
+# Architecture
+
+*Only the runtime system* is added to the runtime.
+
+A user-chosen OCaml closure is called when sampling a block.
+
+## Sampling engine
+
+Allocation is seen as a flow of blocks. Samples are thrown at random (Poisson
+process) at a tunable rate.
+
+## Implementation in the runtime
+
+* Major heap: direct simulation of Poisson process
+* Minor heap: other mechanism with exponential rate.
+
+## OCaml side
+
+The set of tracked blocks is tracked by OCaml code. It uses ephemerons, that
+were introduced in OCaml 4.03.
+
+# Evaluation
+
+* Every allocation can be sampled
+* Good performance: with lambda = 10^(-5), the overhead is < 1 %.
+  With lambda = 10^(-4), the overhead is < 10 %.
+* The profile is *very* representative.
