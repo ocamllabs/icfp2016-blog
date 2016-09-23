@@ -4,23 +4,59 @@ author: your-uid-here (your-name-here)
 abstract: Friday 23rd 1145-1210 AM (OCaml 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/OCaml/conex--establishing-trust-in.md).
+Integrity and authenticity of packages - ensuring the user gets exactly what the author released.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/OCaml/conex--establishing-trust-in/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/147) for this talk
-* contribute your own notes by copying the [template](conex--establishing-trust-in/template.md) for this talk.
+### State of OPAM
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Focus on OPAM but this is general so can be used with other package managers. Can be applied to other datasets as well.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=OCaml:conex--establishing-trust-in)
+**Resources** - *packages*, *releases*, *authors* (github identifier) and *janitors* (fix dependencies, merge PRs).
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Client wants to know if the package he received was the one they intended to receive.
 
+#### Security
+
+- No trusted link between repository and client.
+- Only MD5 checksums of remote archives.
+- A janitor currently has complete access.
+- Transport to client is insecure.
+
+Threat of malicious injection, or rollback of packages (interesting if one of the packages has a security problem).
+
+### Conex
+
+- Does not require any more complexity in the client.
+- Only slight bother to authors.
+- Janitors do have to do a bit more work, but some can be automated.
+- Need to explicitly deal with keys being lost ("not based on some arbitrary mechanism like expiry dates").
+
+**Resources** - each package now has authorised owners. Owners can modify package names using their key. Janitors are in charge of package names.
+
+**Trust** - Authors and Janitors generate private and public keys (stored in the repository). Initial set of Janitors bootstrapped to opam, can add more Janitors dynamically.
+
+**Repository** - Each package is authorised by a janitor, and release and checksum signed by owner. Includes all files of a release. A single janitor cannot modify packages.
+
+**Teams** - Packages can be owned by owners and teams. Useful for managing lots of packages. Janitors is just a team.
+
+Demo showing Conex from the command line - generating keys, verifying connection (shows missing signatures on package etc), ...
+
+Deployment - waiting for OPAM 2.0 (for validation hooks and compiler as packages).
+
+Current state - basic library implemented.
+
+### Conclusion
+
+- End to end signing of package releases.
+- Can be reused (not bound to opam, git, GitHub).
+- No need to trust server.
+- Signed and unsigned package may exist.
+
+### Questions
+
+Q: Most common workflow - when fixing a package most likely to email author or get a quorum? (Gabriel)
+
+A: Depends on packages, some authors reply quickly...
+
+Q: How should we bootstrap this? (Anil) (Missed some of this question)
+
+A: Can just continue with current OPAM repository and use github IDs to bootstrap public keys.
