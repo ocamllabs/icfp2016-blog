@@ -1,26 +1,63 @@
 ---
 title: Generic programming in OCaml
-author: your-uid-here (your-name-here)
+author: ciaran16 (Ciaran Lawlor)
 abstract: Friday 23rd 1545-1610 PM (OCaml 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/OCaml/generic-programming-in-ocaml.md).
+(Not entirely understood, some things are likely wrong)
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/OCaml/generic-programming-in-ocaml/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/161) for this talk
-* contribute your own notes by copying the [template](generic-programming-in-ocaml/template.md) for this talk.
+### Generic programming is USEFUL
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Types sometimes get in the way of modularity.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=OCaml:generic-programming-in-ocaml)
+Example - the length of the list, the height of a tree, the height of an AST, code is all very similar.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Some functions to help with reusability, remove boilerplate code. `para`, `transform`, ...
 
+OCaml already has some generic operations - `compare`, `hash` break *type abstraction*, Marshal from string breaks *type safety*.
+
+Generic programming is another form of polymorphism (structural polymorphism).
+
+Universe
+
+### Generic programming is POSSIBLE in OCaml
+
+Universe of finite types can be represented using GADTS.
+
+Extensible universe and functions - extensible types require extensible functions.
+
+**Ad-hoc polymorphism (overloading)** is now possible in OCaml, now that extensible variants are in OCaml, and by using PPX to provide nicer syntax, generate boilerplate code and simplify usage.
+
+**Generic views** - I missed this, and the part that actually makes generic programming possible
+
+### The library
+
+Core - type reflection and introspection, extensible functions.
+
+Views - generic views, generic combinators, user level.
+
+PPX to be added - syntactic sugar for extensible functions.
+
+Future work - support for modular implicits.
+
+#### Type safe deserialisation
+
+Main motivation for the library.
+
+Support includes cycles, abstract types and objects, extensible and polymorphic variants.
+
+(Not supported - closures, lazy types, records with polymorphic fields and GADTs with existential qualification)
+
+**Abstract types** - only supported if the module that supports this type also exports a public representation that can be converted to and from.
+
+**Comparison to other libraries** - 10 in Haskell, another OCaml library by Jeremy Yallop (but requires a preprocessor). Main limitation compared to other libraries is that there are no higher kinded types in OCaml.
+
+**Work in progress** - needs more documentation, more views, more generic combinators, ppx.
+
+### Summary
+
+Generic programming increases expressibility and modularity.
+
+Generic views reconcile low and high levels of detail.
+
+The built in generic primitives may be replaced with *safer* alternatives.
