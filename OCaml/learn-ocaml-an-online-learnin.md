@@ -1,26 +1,44 @@
 ---
 title: Learn OCaml: An online learning center for OCaml
-author: your-uid-here (your-name-here)
+author: avsm (Anil Madhavapeddy)
 abstract: Friday 23rd 1000-1025 AM (OCaml 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/OCaml/learn-ocaml-an-online-learnin.md).
+Try OCaml
+* nice tool for advertising OCaml and jsoo
+* starting to show its age and is difficult to maintain
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/OCaml/learn-ocaml-an-online-learnin/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/132) for this talk
-* contribute your own notes by copying the [template](learn-ocaml-an-online-learnin/template.md) for this talk.
+OCamlTop and OCaml WebEdit
+* various attempts at a beginner experience
+* not much traction
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+The OCaml MOOC has had 1000s of students in the past two years, and several
+students commented that they stayed for the end of the course due to the
+interactive environment. They could run completely in the browser and not have
+to install any local software.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=OCaml:learn-ocaml-an-online-learnin)
+There is a new version of Try OCaml that is now more maintainable:
+* there is an uptodate OCaml compiler version
+* it has a new polished responsive design and outputs highlighting
+* the toplevel cannot crash your browser as it runs in an isolated webworker
+  threat and so cannot block the UI
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+It has a revamped OCaml MOOC exercise environment with an editor with colors
+and forced indentation and automated grading in-browser.
+
+*demo of app in browser with responsive tablet / phone UI*
+
+Demo highlights:
+* warnings are tied to the location in the source phrase with little html identifiers
+* colors distinguish output, errors, source and warnings clearly
+* infinite loop kept UI responsive
+* amazing camel icon animations in loading screens
+* ocp-indent is enforced so there is normalized syntax, which went well for student learning since they had no preconceived opinions about it
+
+Try OCaml has a set of exercises that students can walk through, and also
+supports grading to get a report of progress activity.  They can be shared socially also.
+
+## Distribution
+
+There is a public instance that is hosted by OCamlPro at <http://try.ocamlpro.com/learn-ocaml-demo> with community contributed content.  The app can be deployed locally. License is AGPLv3, and on GitHub at <https://github.com/ocamlpro/learn-ocaml>, and the content repository is on <https://github.com/ocamlpro/learn-ocaml-repository>. Contributions are welcome...
 

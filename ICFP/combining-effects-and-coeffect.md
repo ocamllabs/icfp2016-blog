@@ -1,26 +1,31 @@
 ---
 title: Combining effects and coeffects via grading
-author: your-uid-here (your-name-here)
+author: ciaran16 (Ciaran Lawlor)
 abstract: Wednesday 21st 1650-1715 PM (ICFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/ICFP/combining-effects-and-coeffect.md).
+(I didn't follow most of this)
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/ICFP/combining-effects-and-coeffect/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/85) for this talk
-* contribute your own notes by copying the [template](combining-effects-and-coeffect/template.md) for this talk.
+What are coeffects? Computations make *changes to the context* (**effects**) and make *demands from the context* (**coeffects**)
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+Per-variable coeffects.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=ICFP:combining-effects-and-coeffect)
+Type and coeffect system, coeffect meta languages
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Interaction of effects and coeffects.
 
+Examples
+- security levels (coeffect) masking non-determinism (effect)
+- Exceptions (effect) change linear reuse bounds (coeffect)
+
+Core calculus - linear-lambda calculus with effect and coeffect types.
+
+Graded monads for effects and graded comonads for coeffects.
+
+### Conclusion
+
+Foundation for considering effect-coeffect interaction.
+
+Further possibilities - exceptions interacting with security levels, non-determinism with probabilistic variables.
+
+Graded distributive laws useful in other contexts.

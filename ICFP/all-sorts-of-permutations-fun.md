@@ -1,7 +1,7 @@
 ---
-title: ICFP 2016: All sorts of permutations (Functional Pearl)
+title: All sorts of permutations (Functional Pearl)
 author: ciaran16 (Ciaran Lawlor)
-abstract: All sorts of permutations (Functional Pearl)
+abstract: Monday 19th 1750-1815 PM (ICFP 2016)
 ---
 
 *[Paper PDF](http://informatik.uni-kiel.de/~sad/icfp2016-preprint.pdf)*
