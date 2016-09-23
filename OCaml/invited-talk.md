@@ -59,4 +59,29 @@ Presents 2 years ago here and originally 5 years ago, but finally upstreamed by 
 * many small syntax improvements
 * UChar module and result type in stdlib
 
+## Release Process
 
+4.03 was quite painful to release and 4 months behind schedule.  Therefore we are switching to a deadline based release process on a 6 month release schedule.  Instead of deciding on the feature set and waiting for them all to be ready, we take the features that are ready at a given date. 
+
+4.04 is the first release to use this process and was frozen on the 1st Aug 2016. 4.05 will be frozen on the 1st Feb 2017.
+
+## Whats next in 4.04?
+
+4.04 is coming soon.  It features:
+
+* the SpaceTime profiler and tells you a lot about their memory behaviour. 
+* local exceptions
+* ocamllex supports `-safe-string`
+* installs the native version of the tools by default (ocamlc.opt)
+* more extensive work on flambda and other optimisations
+
+Further down the line (not scheduled yet)
+* modular implicits
+* algebraic effects
+* multicore OCaml
+
+## Closing
+
+Try to port your code to "safe string" mode, as it will soon become the default, possibly even for 4.05.  It will possibly even become mandatory because unsafe string mode may become unlinkable with safe code if some patch goes in.
+
+OPAM package your code and support the OCaml platform.
