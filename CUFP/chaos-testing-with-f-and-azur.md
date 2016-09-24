@@ -72,3 +72,11 @@ data wasnt coming back and the pricing team noticed errors. It turns out that ES
 was down and had been cascading issues out. This was found because Chaos restarted
 it and it took days for devops to get QA back up and running.  If you want to be
 prepared then test for failure!
+
+# Q&A
+
+Q: How long before this gets to be standard part of engineering culture.
+A: Senior leadership has bought into it, but it will take some time to really embed.
+
+Q: Are Azure services too stable and so chaos engineering less useful?
+A: Not quite -- all of the things have bugs!
