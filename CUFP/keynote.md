@@ -58,4 +58,21 @@ narrow view of what you need. Its valuable to foster them more generally and
 then benefit from having a seat at the table for them to listen to your
 concerns over the longer term.
 
-**Academia isnt academic**:
+**Academia isnt academic**: There is a back and forth between industry and
+academia for various things (e.g. Incremental) and its important that this
+be bidirectional. Learn from academia but also tell them when your realworld
+problems dont fit their worldview.
+
+**Teach your children well**: large number of schools teaching functional
+programming as a core part of their curriculum. But there's still something
+tenuous about the state of affairs, since functional programming still isnt
+recognised as a really important part. The people who care most about FP are
+the ones who study it, so they tend to teach it more. But if you as a non
+academic care about hiring and industry option, then can help by building
+community.  For example, resources like Stack Overflow and other shared
+knowledge bases take a lot of people to contribute in (try OCaml vs Java in SO
+to find the scale difference).  Jane Street has an OCaml bootcamp where they
+have lots of tooling to help beginners. Go is a fairly uninspiring language
+with amazing tooling to make the programmer productive. Its easy from a POV
+that values the language to underestimate the important of tools.
+
