@@ -1,8 +1,10 @@
 ---
 title: Keynote (Yaron Minsky)
-author: avsm (Anil Madhavapeddy)
+author: avsm (Anil Madhavapeddy), gemmag (Gemma Gordon)
 abstract: Saturday 24th 0920-1015 AM (CUFP 2016)
 ---
+
+# Anil Madhavapeddy notes
 
 Opened with discussion about types and static vs dynamic.  But FP still not
 popular. Go to a top school and its something they have heard of, but still
@@ -75,4 +77,7 @@ to find the scale difference).  Jane Street has an OCaml bootcamp where they
 have lots of tooling to help beginners. Go is a fairly uninspiring language
 with amazing tooling to make the programmer productive. Its easy from a POV
 that values the language to underestimate the important of tools.
+
+# Gemma Gordon notes
+
 
