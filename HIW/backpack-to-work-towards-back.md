@@ -27,4 +27,7 @@ Couple of good examples worth looking at:
 * System.Posix has been reimplemented
 * Tagstream-conduit 
 
+Package manager vs compiler:
+* version based dependency resolution
+* anti modular language features (type classes, open type families)
 
