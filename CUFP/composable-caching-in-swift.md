@@ -4,7 +4,9 @@ author: avsm (Anil Madhavapeddy)
 abstract: Saturday 24th 1520-1545 PM (CUFP 2016)
 ---
 
-Virtual caching on keys, and want to make it into differnt types.  Have a monoidal interface to this so can express as maps, etc.
+[Slides](https://bkase.github.io/slides/composable-caching-swift/#/)
+
+Virtual caching on keys, and want to make it into different types. Have a monoidal interface to this so can express as maps, etc.
 Hooking everything up gives us monoidal caching which transparently handles disk and memory caches.
 
 The composition looks fairly straightline in Swift:
@@ -24,7 +26,7 @@ let optimisedCache = diskCache.compose (netCache).reuseInflight(dict)
 
 ## Q&A
 
-Q: Two processes do two sets. Do a set on a composition to do two concurrent sets. How do you avoid two concurrent processes setting up subvalues? 
+Q: Two processes do two sets. Do a set on a composition to do two concurrent sets. How do you avoid two concurrent processes setting up subvalues?
 A: Yes that would be bad.
 
 Q: Looked at interaction with Twitter Finagle and other systems for integration?
