@@ -1,6 +1,6 @@
 ---
 title: Composable caching in Swift
-author: your-uid-here (your-name-here)
+author: avsm (Anil Madhavapeddy)
 abstract: Saturday 24th 1520-1545 PM (CUFP 2016)
 ---
 
