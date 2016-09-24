@@ -35,3 +35,40 @@ Principles of chaos engineering:
 * Assume normal will continue in both a control group and an experimental group
 * Introduce chaos -- servers that crash, hard drives that malfunction, network connections that are severed, etc.
 * Look for differences in behaviour between control and experimental groups.
+
+Benefits:
+- self service as you write your own tests
+- design for failure
+- learn from the experiment
+
+Is this just Chaos Monkey? They have a bunch of related products (Janitor
+Monkey, looks for unused resources). There is an AzMonkey that runs on Azure.
+They were all too large scale (take down a cluster) rather than a more
+manageable scale to start with (take down an instance). Dont want to destroy
+the engineering team with bugs!
+
+Its obviously very very important to not test in production to start with!
+
+The code looks like straightfoward:
+
+```
+computer
+|> getHostedService
+|> Seq.filter ignoreList
+|> knuthShuffle
+|> Seq.distinctBy (fun a -> a.ServiceName)
+|> Seq.map (fun hostedService -> async {
+   restartRandomInstance compute hostedService
+})
+|> Async.ParallelIgnore
+```
+
+ignoreList is to get ability to stop random testing for short period of time.
+Not encouraged to maintain long term ignore lists but the ability is useful.
+The map then restarts one service among the list and runs rest in parallel.
+
+Did this help?  One good example was ElasticSearch restarting. Search noticed that
+data wasnt coming back and the pricing team noticed errors. It turns out that ES
+was down and had been cascading issues out. This was found because Chaos restarted
+it and it took days for devops to get QA back up and running.  If you want to be
+prepared then test for failure!
