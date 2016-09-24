@@ -1,26 +1,15 @@
 ---
 title: Creating an approachable Haskell-like DSL
-author: your-uid-here (your-name-here)
+author: seliopou (Spiros Eliopoulos)
 abstract: Saturday 24th 1400-1425 PM (CUFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/CUFP/creating-an-approachable-haske.md).
+The use-case considered by the talk is building an DSL that is somewhere between Haskell or OCaml, and YAML or JSON. The main motivation for not using YAML or JSON is a syntax that is more amenable to composition. In addition, many serialization formats such as YAML and JSON do not support comments and in-line documentation, and only offer generic error messages. In other words, using an EDSL allows the implementor to provide langauge-specific syntax error messages as well as errors that result from other static analyses.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/CUFP/creating-an-approachable-haske/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/192) for this talk
-* contribute your own notes by copying the [template](creating-an-approachable-haske/template.md) for this talk.
+Additional design goals include:
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+* simple things should be simple;
+* complex things should be possible in a clean way; and
+* avoid building a general purpose programming languagae.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=CUFP:creating-an-approachable-haske)
-
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
-
+The implemented DSL is a typed langauge that includes records with an update syntax, pattern matching, and functions. Functions support something like named parameters by allowing pattern matching against records in function arguments. Optional named arguments (arguments that have an option type) are also supported via special treatment of the `Option` type, specifically allowing coercion of `'a` to `Option 'a` and vice versa. That same sort of coercion is in a sense "lifted" to record fields, where fields with an `Option 'a` type can be omitted, or just specified by providing a vlue of type `'a`. This is at the cost of principal typing of the inference algorithm.
