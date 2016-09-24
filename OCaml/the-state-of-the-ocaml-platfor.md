@@ -12,7 +12,7 @@ Uses compiler as switch - allows more custom compilers (coq). Also fits with sig
 opam switches untied from compiler  
 
 new uses for switches:
-  
+
 - compiler: base packages
 - root packages no longer have to be installed
 - package pinning
@@ -80,6 +80,8 @@ opam-manager: released soon: wrappers for all commands so they are auto selected
 camelus: opam-bot for errors and warnings when uploading to opam
 opam weather service: irill.org
 bench.flambda.ocamlpro.com: test new branches of the compiler - needs a little work to be very useful.
+
+## Q&A
 
 Q: software bundles - implementation plan? Not decided yet, different plans. Can use plugin or tool rather than baking it into opam. Standalone archive, easy to build with opam 2.0
 
