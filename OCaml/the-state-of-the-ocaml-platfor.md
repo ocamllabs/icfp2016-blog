@@ -11,7 +11,8 @@ local switches - essentially act as a sandbox.
 Uses compiler as switch - allows more custom compilers (coq). Also fits with signing (conex - see Hannes' talk)  
 opam switches untied from compiler  
 
-new uses for switches:  
+new uses for switches:
+  
 - compiler: base packages
 - root packages no longer have to be installed
 - package pinning
