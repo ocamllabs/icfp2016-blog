@@ -20,3 +20,18 @@ Python, Node, R, Python etc and not afraid to find the right tool for the job.
 > I am still waiting for the first bug to come in"
 >  - Simon Cousins , UK Power Company
 
+Most loved languages in a recent survey on SO were mostly functional
+programming languages.
+
+### What is Chaos Engineering
+
+Chaos engineering is about breaking things, but in a controlled way to see what
+will go wrong. "lets try a negative one of something and see what happens".
+Especially with a distributed system its important to test all the interactions
+so that it will actually work at scale.
+
+Principles of chaos engineering:
+* Define "normal" behaviour (e.g. a shopping cart)
+* Assume normal will continue in both a control group and an experimental group
+* Introduce chaos -- servers that crash, hard drives that malfunction, network connections that are severed, etc.
+* Look for differences in behaviour between control and experimental groups.
