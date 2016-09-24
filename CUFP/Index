@@ -11,6 +11,7 @@ abstract: Click this for a summary of the talks and their times
 * Saturday 24th 1145-1210: [Chaos testing with F# and Azure](chaos-testing-with-f-and-azur.md)
 * Saturday 24th 1210-1235: [Building a web application with continuation monads](building-a-web-application-wit.md)
 * Saturday 24th 1400-1425: [Creating an approachable Haskell-like DSL](creating-an-approachable-haske.md)
+* Saturday 24th 1425-1450: [The Highs and Lows of Optimising DSLs](the-highs-and-lows-of-optimisi.md)
 * Saturday 24th 1520-1545: [Composable caching in Swift](composable-caching-in-swift.md)
 * Saturday 24th 1545-1610: [Guix: Scheme as a uniform OS admin and deployment interface](guix-scheme-as-a-uniform-os-a.md)
 * Saturday 24th 1640-1705: [Baby steps to unikernels in production](baby-steps-to-unikernels-in-pr.md)
