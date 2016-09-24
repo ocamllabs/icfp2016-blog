@@ -33,7 +33,7 @@ This library can run inside OpenBSD software like `curl`.
 
 c binding to ocaml tls designed to be fully compatible with libtls in open bsd
 
-**challenges in replacing a system library**
+**Challenges in replacing a system library**
 e.g. libreSSL
 
 - Libraries are mostly written in C, and used by C programs
@@ -49,34 +49,34 @@ e.g. libreSSL
 replicating the libtls interface
 complex interface
 
-**bridging programming styles**
+**Bridging programming styles**
 
 - in libtls, configuration is done through many setters in libtls
 - configuration validation
 
 can uncode the scenarios with types. Makes it easier to check the configuration implementation.
 
-## harmonising memory management
-**probs**
+## Harmonising memory management
+**Probs**
 
 - want to take a lot of ocaml values and put them over to the c side -> problematic for GC
 - value can get moved during GC compaction, and program will crash
 
-**solution**
+**Solution**
 
 - ocaml-ctypes can return a pointer to a block registered within the runtime that holds the address to actual value
 - if the value is moved, then the address is still valid
 - manual management of this block is needed
 - BUT can still end up adding a call to malloc by OCaml code - dirty but you get used to it
 
-**performance**
+**Performance**
 
 - library is around 70% as fast as libtls in comparable conditions.
 - comparison between pure ocaml-tls to libtls - 10% performance decrease in a naive implementation
 
 lots of possibility for improvements here
 
-**integration with system services**
+**Integration with system services**
 
 - this runs within openbsd's httpd, netcat, curl, ftp
 - some cases with unexpected behavioural differences - e.g. capabilities system for openbsd - it is difficult to match the behaviours match
