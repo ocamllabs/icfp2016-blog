@@ -4,23 +4,17 @@ author: your-uid-here (your-name-here)
 abstract: Saturday 24th 1210-1235 AM (CUFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/CUFP/building-a-web-application-wit.md).
+DWANGO is a system built by speker. It has a variety of services such as e-books and side services like video and live streaming. The functionality for user management has been aggregated into the account system.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/CUFP/building-a-web-application-wit/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/185) for this talk
-* contribute your own notes by copying the [template](building-a-web-application-wit/template.md) for this talk.
+The account system is for many services and sits on many devices, so needs several interfacs.  So wanted a component technology to factor out code.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+There are quite a few filters available in existing web middleware stacks. The problem is that the component technologies dont compose well and lots of information needed by a filter isnt easy to get by.  So we built a new one using continuation monads in Scala.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=CUFP:building-a-web-application-wit)
+A continuation represents the rest of the computation at a given point in execution. In Scala, a continuation monad converts a function that receives the continuation into a monad. 
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+For example, for authentication verification: it assumes that a user logs in elsewhere and there is a session in HTTP cookies before this operation. The session information is stored in Redis, and the component compares the cookie information and the server db to check whether the user is authenticated.
 
+The sequence diagram is: web browser -> web server -> authentication -> filter -> main processing.
+The code in Scala looks pretty straight line since written in a monadic style.
+
+Compression is another good example of using the monad.
