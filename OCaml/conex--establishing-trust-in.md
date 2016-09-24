@@ -170,6 +170,8 @@ based on update framework of the tor team in 2010
 - signed and unsigned packages can coexist
 - initial rollout with opam 2.0
 
+### Q&A
+
 Q: want to modify a package as a janitor - do I email author or I get a quorum - what would be the most common workflow? Anyone can propose a PR then inform either the author or a set of janitors - once it has enough signatures then the PR can be merged. Some authors are responding very quickly, but it can depend on specific package and author.
 
 Q: How can this be bootstrapped with the 4000 packages that are there right now? New opam repo or use current one? Continue with current repo. Initial bootstrap - use Github ids to bootstrap the public keys. Authors with lots of packages, we should be more careful of the initial bootstrapping process to ensure no problems/malicious insertion at that point

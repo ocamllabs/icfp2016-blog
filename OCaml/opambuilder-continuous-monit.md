@@ -66,6 +66,8 @@ opam-builder runs on a single server
 
 working since march 2016
 
+## Q&A
+
 Q: caching mechanism - wouldn't this be useful in opam itself? If you have many switches depending on the same tree. have to make OCaml look at the build - in one switch that is ok and you can reuse what has been done already. If the directories of the switches are different then it won't work, and if you want to share the binaries between different people. ocamlfind is not compatible with that. Not just opam, it requires fixing a few OCaml packages
 
 Anil: using opam 2 wrappers we have a docker version using file system of docker (support for wrapper scripts present in opam 2)
