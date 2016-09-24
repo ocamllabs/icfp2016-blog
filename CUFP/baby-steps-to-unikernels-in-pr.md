@@ -4,7 +4,7 @@ author: avsm (Anil Madhavapeddy)
 abstract: Saturday 24th 1640-1705 PM (CUFP 2016)
 ---
 
-Started by explaining unikernels, and in particular how they are using MirageOS in production at their startup.
+[Sean Grove](https://twitter.com/sgrove) started by explaining unikernels, and in particular how they are using MirageOS in production at their startup.
 
 Why unikernels for industry?
 * Resource usage
@@ -39,7 +39,7 @@ In theory, Mirage supports many backends but in practise the different backends 
 * Docker solves this but is another dependency so wary of introducing it, but for shops already using Docker this should be fine.
 * This is considered _unsolved_ at the moment *Anil note: should put a gating bug on OPAM2 to ensure this is resolved before OPAM2.0 release*
 
-Hosting:
+### Hosting
 * Tried EC2 on Xen initially but the primitives and workflow hampered quick deployments
 * Hrd to plug unikernels into existing tooling and so benefits are difficult to realise.
 * Solo5 (KVM) backend and Google CE has been much more succesful. Upload to Google Cloud storage and upload and boot within minutes!
@@ -57,7 +57,7 @@ Scaling:
 * Health checks to restart every 30 seconds if any installs are stalled.
 * Considered solved
 
-Where do we go next:
+### Where do we go next
 * On the cusp of being able to production unikernels.
 * Nextgen infra need to be unikernel aware
 * Unikernels raw boot in milliseconds, but infrastructure stalls it all.
@@ -66,7 +66,7 @@ Where do we go next:
 * Google's model is per minute (AWS is per hour), but a website as a unikernel needs something even more fine grained (per second). 
 * Because of the immutable nature of unikernels, previous versions can support rollback.
 
-Ongoing concerns:
+### Ongoing concerns
 * Documentation: this is a perennial one in dev communities, but is particularly bad in OCaml.
 * Tried to bring a team up to speed in OCaml -- the language is fine, but the packages really lack effective docs and are a mass of types.
 * Community:
