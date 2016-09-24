@@ -1,6 +1,6 @@
 ---
 title: Conex -- establishing trust into data repositories
-author: your-uid-here (your-name-here)
+author: Ciaran Lawlor
 abstract: Friday 23rd 1145-1210 AM (OCaml 2016)
 ---
 
