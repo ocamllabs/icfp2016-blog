@@ -1,26 +1,50 @@
 ---
 title: Sundials/ML: Interfacing with numerical solvers
-author: your-uid-here (your-name-here)
+author: gemmag (Gemma Gordon)
 abstract: Friday 23rd 1400-1425 PM (OCaml 2016)
 ---
+## Intro
+OCaml interface to Sundials
+Modelling hybrid systems - a controller embedded in a physical environment
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/OCaml/sundialsml-interfacing-with-.md).
+Industrial tools: Simulink, Zelus etc
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/OCaml/sundialsml-interfacing-with-/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/152) for this talk
-* contribute your own notes by copying the [template](sundialsml-interfacing-with-/template.md) for this talk.
+Simulate the whole system, including the physics - need to hook up with a numerical solver
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+## Sundials library
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=OCaml:sundialsml-interfacing-with-)
+- suite of 6 numerical solvers from LLNL
+ODEs
+DAEs
+nonlinear equations
+- Feature rich, widely used state of the art
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Using it from C is problematic - they are interdependent so you get error return values or a segfault
 
+The OCaml comparison is much safer and less prone to errors. Build up an ADT specifying the options that you want. the type system is forcing you to come up with the right combinations that make sense to the solver.
+
+API done in the right OCaml kind of way
+
+- supports documented features
+- modest overhead, mostly <70%
+
+pass big arrays into the solver in a wrapped form
+
+Sundials C library using c-structs.
+ffi follows the link from the OCaml tuple into the C library and will follow the backlink to the OCaml call (big array). The backlink is GC rooted so will exist together with the big array payload.
+
+can link with an mpi communicator to support different levels of parallelisation.
+
+## Benchmarks
+
+- 56 examples included in sundial
+- reimplemented in OCaml compared to C. in most cases, if array bouncechecking, the OCaml implementation runs with no more than 70% (compared to the value of C) and 30% in many cases.
+
+Fairly low overhead overall
+Already used in Zelus compiler as a backend with no observable perf problems
+
+## Q&A
+
+Q: 30% overhead is quite a lot for a binding - usually you'd expect 1%. Why is it so high? We have the binding calling throught the ffi in a tight loop.
+
+Q: Did you make the interface by hand? Yes, because we wanted to have tight control.
