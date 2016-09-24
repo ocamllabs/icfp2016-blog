@@ -1,6 +1,6 @@
 ---
 title: Building a web application with continuation monads
-author: your-uid-here (your-name-here)
+author: avsm (Anil Madhavapeddy)
 abstract: Saturday 24th 1210-1235 AM (CUFP 2016)
 ---
 
