@@ -1,26 +1,30 @@
 ---
 title: Backpack to work: towards Backpack in practice
-author: your-uid-here (your-name-here)
+author: avsm (Anil Madhavapeddy)
 abstract: Saturday 24th 1035-1100 AM (HIW 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/HIW/backpack-to-work-towards-back.md).
+Backpack is a module system for Haskell should be merged for GHC 8.2 (oked by spj)
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/HIW/backpack-to-work-towards-back/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/179) for this talk
-* contribute your own notes by copying the [template](backpack-to-work-towards-back/template.md) for this talk.
+Motivation: there are many different string variations. Bytestring is used by attoparsec, and text has a different attoparsec-text fork.  All the imports have to change if you want to change the representation and the ecosystem cannot keep up.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
+How can Backpack solve the string problem in haskell? Instead of having attoparsec depend on an implementation of String, then depend on an abstract signature. bytestring, text and foundation can all be implementations that provide a module that matches the "Str" interface. You can typecheck attoparsec by itself without all the implementations.
 
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=HIW:backpack-to-work-towards-back)
+Idea:
+* Packages not modules. A way to provide "strong modularity" without modifying the source language.
+* This is not quite like ML modules since it is not as fine grained. 
+* Using the idea of mixins not functors.
 
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+Explictly passing around functors gets old. mixins are wildcard records + thinning/renaming.
+Explictly managing sharing constraints gets old. This is why ML functors are hard for people to understand, and it would be better if packages just fused equalities automatically.
+
+Principle: Package manager is source code independent. That is, the package manager must only use binary artefacts. 
+Corollaary: Signatures should be tracked per package, not per instance.
+
+Mix-in linking can be separated into two algorithms: one language agnostic. From the perspective of a user, there is a nice surface language so they do not need to write these functor abstractions explicitly.
+
+Couple of good examples worth looking at:
+* System.Posix has been reimplemented
+* Tagstream-conduit 
+
 
