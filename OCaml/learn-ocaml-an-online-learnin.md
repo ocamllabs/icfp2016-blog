@@ -46,9 +46,6 @@ There is a public instance that is hosted by OCamlPro at <http://try.ocamlpro.co
 
 ## Gemma Gordon's notes
 
-Benjamin Canou: Learning OCaml
-OCamlPro
-
 ### Previous teaching resources
 Learn OCaml builds on previous experiments:
 
