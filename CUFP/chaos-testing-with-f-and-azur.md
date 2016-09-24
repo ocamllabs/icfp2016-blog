@@ -1,26 +1,22 @@
 ---
 title: Chaos testing with F# and Azure
-author: your-uid-here (your-name-here)
+author: avsm (Anil Madhavapeddy)
 abstract: Saturday 24th 1145-1210 AM (CUFP 2016)
 ---
 
-There is currently no liveblog summary available for this talk. Please contribute one by modifying [this file](https://github.com/ocamllabs/icfp2016-blog/blob/master/CUFP/chaos-testing-with-f-and-azur.md).
+Why Chaos engineering? There are lots of ways to test. If youre building
+systems that scale, have you tested various things like timeouts that are hard
+to comprehensively cover. The Volkswagen emissions scandal was detected because
+the results were too uniform, and not enough chaos!  Its super important to
+test the interactions in your environment.
 
-You can:
-* view in-progress summaries [in the Git repository](https://github.com/ocamllabs/icfp2016-blog/tree/master/CUFP/chaos-testing-with-f-and-azur/)
-* track the [GitHub issue](https://github.com/ocamllabs/icfp2016-blog/issues/184) for this talk
-* contribute your own notes by copying the [template](chaos-testing-with-f-and-azur/template.md) for this talk.
+Jet.com is a NYC based startup that launched in July 2015 and is an ecommerce
+company that was bought for 3.3 billion purchase by Walmart.  Has around 700
+microservices and is a heavy user of F# and is not a heavy user of AWS since
+they are in competition with Amazon. Also a large variety of technologies like
+Python, Node, R, Python etc and not afraid to find the right tool for the job.
 
-Some useful contributions before the talk include:
-* a link to an open access preprint PDF (see [here](https://github.com/gasche/icfp2016-papers))
-* background information you might feel will help readers understand the talk better
-
-During the talk, some useful things to record in a liveblog are:
-* the general flow of the speaker's explanation
-* summaries or links that would be useful to a reader that has not read the paper
-* any questions the audience asks which may not be recorded correctly
-* send photos or other social media during this talk to [this email](mailto:icfp16.photos@gmail.com?subject=CUFP:chaos-testing-with-f-and-azur)
-
-If you find yourself confused by Git, you are not alone. Find a nearby functional progammer
-to assist you with the fine art of issuing a [pull request](https://help.github.com/articles/about-pull-requests/).
+> "I have now delivered three business critical applications written in F#.
+> I am still waiting for the first bug to come in"
+>  - Simon Cousins , UK Power Company
 
