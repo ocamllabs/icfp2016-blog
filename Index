@@ -33,6 +33,7 @@ Some useful resources:
 * Data is a Git repo at <https://github.com/ocamllabs/icfp2016-blog>; [PRs](https://help.github.com/articles/creating-a-pull-request/) welcome!
 * ICFP preprints: <https://github.com/gasche/icfp2016-papers>
 * Conference website: <http://icfpconference.org>
+* Recorded talks are available on [Youtube](https://www.youtube.com/channel/UCwRL68qZFfub1Ep1EScfmBw)
 
 Site Info:
 * It is served via an OCaml [MirageOS](https://mirage.io) [unikernel](https://en.wikipedia.org/wiki/Unikernel) running on [Docker Cloud](http://cloud.docker.com).
@@ -40,7 +41,7 @@ Site Info:
 * The scripts for generating the Git templates are available [here](https://github.com/ocamllabs/icfp2016-blog/tree/code)
 
 ChangeLog:
-* 19th Sep 2016: Mark HOPE, TyDE, PLMW as complete and rearrange the Index. 
+* 19th Sep 2016: Mark HOPE, TyDE, PLMW as complete and rearrange the Index.
 * 17th Sep 2016: [Blog Git repository](https://github.com/ocamllabs/icfp2016-blog) is open for edits! *-avsm*
 * 16th Sep 2016: Bug fixes in the [template generation branch](https://github.com/ocamllabs/icfp2016-blog/tree/code) *-avsm*
 * 16th Sep 2016: Site goes live on <http://icfp2016.mirage.io> *-avsm*
