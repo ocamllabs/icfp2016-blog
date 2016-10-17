@@ -5,20 +5,14 @@ abstract: All the liveblogs
 ---
 
 Welcome to the unofficial [ICFP 2016](http://conf.researchr.org/home/icfp-2016)
-liveblog!  This is a resource intended to capture the live notes of activity
+liveblog!  This is a resource intended to capture attendees notes
 across the [hundreds of talks](http://conf.researchr.org/program/icfp-2016/program-icfp-2016) that will be given at ICFP 2016 in Nara, Japan.
 Any attendee of the conference is welcome to contribute their notes here, and
 we will aggregate them after the event into an archive.
 
-To contribute, please click through to the individual talks in the list below:
+ICFP hosted the following events:
 
-Currently ongoing:
-* **[CUFP](CUFP)** - *[homepage](http://cufp.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ACUFP)*
-* **[FARM](FARM)** - *[homepage](http://functional-art.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFARM)*
-* **[HIW](HIW)** - *[homepage](https://wiki.haskell.org/HaskellImplementorsWorkshop/2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHIW)*
-
-Completed events: (if you have notes to contribute, please help by [sending them](https://github.com/ocamllabs/icfp2016-blog) in; wifi at the event was spotty so some of these got no coverage at all)
-* **[ICFP](ICFP)** - *[homepage](http://conf.researchr.org/track/icfp-2016/icfp-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AICFP)*
+* **[ICFP main conference](ICFP)** - *[homepage](http://conf.researchr.org/track/icfp-2016/icfp-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AICFP)*
 * **[OCaml](OCaml)** - *[homepage](http://ocaml.org/meetings/ocaml/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AOCaml)*
 * **[HOPE](HOPE)** - *[homepage](http://conf.researchr.org/track/icfp-2016/hope-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHOPE)*
 * **[TyDe](TyDe)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ATyDe)*
@@ -28,6 +22,9 @@ Completed events: (if you have notes to contribute, please help by [sending them
 * **[FHPC](FHPC)** - *[homepage](http://conf.researchr.org/home/icfp-2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFHPC)*
 * **[Scheme](Scheme)** - *[homepage](http://scheme2016.snow-fort.org)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AScheme)*
 * **[Erlang](Erlang)** - *[homepage](http://conf.researchr.org/track/icfp-2016/erlang-2016-papers)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AErlang)*
+* **[CUFP](CUFP)** - *[homepage](http://cufp.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3ACUFP)*
+* **[FARM](FARM)** - *[homepage](http://functional-art.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFARM)*
+* **[HIW](HIW)** - *[homepage](https://wiki.haskell.org/HaskellImplementorsWorkshop/2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHIW)*
 
 Some useful resources:
 * Data is a Git repo at <https://github.com/ocamllabs/icfp2016-blog>; [PRs](https://help.github.com/articles/creating-a-pull-request/) welcome!
@@ -41,6 +38,7 @@ Site Info:
 * The scripts for generating the Git templates are available [here](https://github.com/ocamllabs/icfp2016-blog/tree/code)
 
 ChangeLog:
+* 13th Oct 2016: Remove the ongoing/completed distinction.
 * 19th Sep 2016: Mark HOPE, TyDE, PLMW as complete and rearrange the Index.
 * 17th Sep 2016: [Blog Git repository](https://github.com/ocamllabs/icfp2016-blog) is open for edits! *-avsm*
 * 16th Sep 2016: Bug fixes in the [template generation branch](https://github.com/ocamllabs/icfp2016-blog/tree/code) *-avsm*
