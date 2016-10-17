@@ -26,6 +26,10 @@ ICFP hosted the following events:
 * **[FARM](FARM)** - *[homepage](http://functional-art.org/2016/)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AFARM)*
 * **[HIW](HIW)** - *[homepage](https://wiki.haskell.org/HaskellImplementorsWorkshop/2016)*, *[issues](https://github.com/ocamllabs/icfp2016-blog/issues?q=is%3Aopen+is%3Aissue+label%3AHIW)*
 
+In addition, the **[SVs](SVs)** category collects blog posts from the ICFP [student
+volunteers](http://conf.researchr.org/attending/icfp-2016/Student+Volunteers)
+writing about their conference experience.
+
 Some useful resources:
 * Data is a Git repo at <https://github.com/ocamllabs/icfp2016-blog>; [PRs](https://help.github.com/articles/creating-a-pull-request/) welcome!
 * ICFP preprints: <https://github.com/gasche/icfp2016-papers>
