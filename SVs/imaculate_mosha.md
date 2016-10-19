@@ -1,5 +1,5 @@
 ---
-title: Being a student volunteer at ICFP 2016
+title: One talk really stood out for me
 author: Imaculate Mosha
 ---
 
